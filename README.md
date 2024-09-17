@@ -1,12 +1,14 @@
 # ![Code Party](.github/codeparty.png)
 
+###### (Work In Progress!)
+
 # Code Party - Compare Coding Languages & Approaches
 
-[![Website](https://img.shields.io/badge/website-visit-blue)](https://code-party.dev)
+[![Website](https://img.shields.io/badge/website-visit-blue)](https://code-party-dev.vercel.app/)
 
 **Code Party** is an open-source platform designed to help developers compare different programming languages by showcasing how they handle simple tasks, such as printing to the console, and more complex algorithms, like Breadth-First Search (BFS) and Depth-First Search (DFS). By illustrating language-specific syntax and approaches side-by-side, **Code Party** makes it easier to understand how different languages function, and how to use them more effectively.
 
-It is also inspired by the great tool [Component Party 🎉](https://component-party.dev)! 
+It is also inspired by the great tool [Component Party 🎉](https://component-party.dev)!
 
 ## Features
 
@@ -35,6 +37,7 @@ It is also inspired by the great tool [Component Party 🎉](https://component-p
 ## Contributing
 
 We welcome contributions from the community! Here's how you can get involved:
+
 1. Fork the repository.
 2. Add your language’s implementation for a task or algorithm.
 3. Submit a pull request with your changes for review.
