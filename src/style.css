@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html,
+body {
+  @apply bg-sky-50 text-black dark:text-gray-200;
+}
+
+body {
+  @apply min-h-screen from-[#0D1728] to-[#000000] dark:bg-gradient-to-b;
+}
