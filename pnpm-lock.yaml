@@ -7,6 +7,13 @@ settings:
 importers:
 
   .:
+    dependencies:
+      lucide-svelte:
+        specifier: ^0.441.0
+        version: 0.441.0(svelte@5.0.0-next.249)
+      prettier-plugin-organize-imports:
+        specifier: ^4.0.0
+        version: 4.0.0(prettier@3.3.3)(typescript@5.6.2)
     devDependencies:
       '@sveltejs/adapter-auto':
         specifier: ^3.2.5
@@ -43,7 +50,7 @@ importers:
         version: 3.2.6(prettier@3.3.3)(svelte@5.0.0-next.249)
       prettier-plugin-tailwindcss:
         specifier: ^0.6.6
-        version: 0.6.6(prettier-plugin-svelte@3.2.6(prettier@3.3.3)(svelte@5.0.0-next.249))(prettier@3.3.3)
+        version: 0.6.6(prettier-plugin-organize-imports@4.0.0(prettier@3.3.3)(typescript@5.6.2))(prettier-plugin-svelte@3.2.6(prettier@3.3.3)(svelte@5.0.0-next.249))(prettier@3.3.3)
       svelte:
         specifier: ^5.0.0-next.1
         version: 5.0.0-next.249
@@ -922,6 +929,11 @@ packages:
   lru-cache@10.4.3:
     resolution: {integrity: sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==}
 
+  lucide-svelte@0.441.0:
+    resolution: {integrity: sha512-lwckKpu4KNth7EBPWUdx7dvRaBrFC173JSdioN2WILol7nwFAPfvbGLeez8ZlnT31boj7pNT7hjvBz3ZJfmUbQ==}
+    peerDependencies:
+      svelte: ^3 || ^4 || ^5.0.0-next.42
+
   magic-string@0.30.11:
     resolution: {integrity: sha512-+Wri9p0QHMy+545hKww7YAu5NyzF8iomPL/RQazugQ9+Ez4Ic3mERMd8ZTX5rfK944j+560ZJi8iAwgak1Ac7A==}
 
@@ -1102,6 +1114,19 @@ packages:
   prelude-ls@1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
+
+  prettier-plugin-organize-imports@4.0.0:
+    resolution: {integrity: sha512-vnKSdgv9aOlqKeEFGhf9SCBsTyzDSyScy1k7E0R1Uo4L0cTcOV7c1XQaT7jfXIOc/p08WLBfN2QUQA9zDSZMxA==}
+    peerDependencies:
+      '@vue/language-plugin-pug': ^2.0.24
+      prettier: '>=2.0'
+      typescript: '>=2.9'
+      vue-tsc: ^2.0.24
+    peerDependenciesMeta:
+      '@vue/language-plugin-pug':
+        optional: true
+      vue-tsc:
+        optional: true
 
   prettier-plugin-svelte@3.2.6:
     resolution: {integrity: sha512-Y1XWLw7vXUQQZmgv1JAEiLcErqUniAF2wO7QJsw8BVMvpLET2dI5WpEIEJx1r11iHVdSMzQxivyfrH9On9t2IQ==}
@@ -2223,6 +2248,10 @@ snapshots:
 
   lru-cache@10.4.3: {}
 
+  lucide-svelte@0.441.0(svelte@5.0.0-next.249):
+    dependencies:
+      svelte: 5.0.0-next.249
+
   magic-string@0.30.11:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.0
@@ -2366,15 +2395,21 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
+  prettier-plugin-organize-imports@4.0.0(prettier@3.3.3)(typescript@5.6.2):
+    dependencies:
+      prettier: 3.3.3
+      typescript: 5.6.2
+
   prettier-plugin-svelte@3.2.6(prettier@3.3.3)(svelte@5.0.0-next.249):
     dependencies:
       prettier: 3.3.3
       svelte: 5.0.0-next.249
 
-  prettier-plugin-tailwindcss@0.6.6(prettier-plugin-svelte@3.2.6(prettier@3.3.3)(svelte@5.0.0-next.249))(prettier@3.3.3):
+  prettier-plugin-tailwindcss@0.6.6(prettier-plugin-organize-imports@4.0.0(prettier@3.3.3)(typescript@5.6.2))(prettier-plugin-svelte@3.2.6(prettier@3.3.3)(svelte@5.0.0-next.249))(prettier@3.3.3):
     dependencies:
       prettier: 3.3.3
     optionalDependencies:
+      prettier-plugin-organize-imports: 4.0.0(prettier@3.3.3)(typescript@5.6.2)
       prettier-plugin-svelte: 3.2.6(prettier@3.3.3)(svelte@5.0.0-next.249)
 
   prettier@3.3.3: {}
