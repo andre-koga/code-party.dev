@@ -8,5 +8,5 @@ body {
 }
 
 body {
-  @apply min-h-screen from-[#0D1728] to-[#000000] dark:bg-gradient-to-b;
+  @apply min-h-screen bg-gradient-to-b from-stone-100 to-orange-200 dark:bg-gradient-to-b dark:from-[#0D1728] dark:to-[#000000];
 }
