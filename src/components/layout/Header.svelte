@@ -13,7 +13,7 @@
   }
 </script>
 
-<header class="flex border-b border-slate-600 p-2">
+<header class="flex border-b border-slate-600 p-2 px-4">
   <Logo />
   <div class="flex-grow"></div>
   <button

@@ -1,3 +1,3 @@
-<div class="text-xl font-semibold">
-  <a href="/">CodeParty(💫)</a>
+<div class="text-xl font-medium">
+  <a href="/">CodeParty( 💫 )</a>
 </div>
