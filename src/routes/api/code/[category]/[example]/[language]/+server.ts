@@ -3,6 +3,10 @@ import fs from 'fs';
 import path from 'path';
 import { error, json } from '@sveltejs/kit';
 
+export const config = {
+    runtime: 'edge'
+};
+
 export const GET: RequestHandler = async ({ params }) => {
     const { category, example, language } = params;
     // console.log(params);

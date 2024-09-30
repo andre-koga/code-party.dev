@@ -19,7 +19,9 @@ const config = {
       $constants: "./src/lib/constants/*",
     },
 
-    adapter: adapter(),
+    adapter: adapter({
+      runtime: "edge",
+    }),
   },
 };
 

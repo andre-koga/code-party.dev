@@ -6,7 +6,6 @@
 
   import Footer from "$layout/Footer.svelte";
   import Header from "$layout/Header.svelte";
-  import Sidebar from "$layout/Sidebar.svelte";
 
   import { theme } from "$stores/themeStore";
 

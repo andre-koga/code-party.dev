@@ -3,6 +3,10 @@ import fs from 'fs';
 import path from 'path';
 import { json, error } from '@sveltejs/kit';
 
+export const config = {
+    runtime: 'edge'
+};
+
 export const GET: RequestHandler = async () => {
     const contentDir = path.join(process.cwd(), 'content');
     const structure = {
