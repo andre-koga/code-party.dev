@@ -4,9 +4,10 @@
 
 html,
 body {
-  @apply bg-sky-50 text-black dark:text-gray-200;
+  @apply scroll-smooth bg-sky-50 text-black dark:text-gray-200;
 }
 
 body {
-  @apply min-h-screen bg-gradient-to-b from-stone-100 to-orange-200 dark:bg-gradient-to-b dark:from-[#0D1728] dark:to-[#000000];
+  @apply min-h-screen bg-gradient-to-b from-stone-200 to-orange-100 dark:bg-gradient-to-b dark:from-[#0D1728] dark:to-[#000000];
+  background-attachment: fixed;
 }

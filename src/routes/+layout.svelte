@@ -20,12 +20,7 @@
 <div class:bg-light={$theme == "light"} class:bg-dark={$theme == "dark"}>
   <Header />
 
-  <div class="flex">
-    <Sidebar />
-    <main class="flex-grow">
-      <slot />
-    </main>
-  </div>
+  <slot />
 
   <Footer />
 </div>
