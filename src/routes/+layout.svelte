@@ -10,7 +10,6 @@
   import { theme } from "$stores/themeStore";
 
   export let title = "Code Party";
-  export const prerender = true;
 </script>
 
 <svelte:head>

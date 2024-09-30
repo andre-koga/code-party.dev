@@ -17,10 +17,6 @@ type AllData = {
     };
 }
 
-export const config = {
-    runtime: 'edge'
-};
-
 export const GET: RequestHandler = async () => {
     const contentDir = path.join(process.cwd(), 'content');
     const structure: AllData = {};
