@@ -24,30 +24,31 @@ export const GET: RequestHandler = async () => {
 
     try {
         const categories = fs.readdirSync(contentDir);
+        console.log("reading categories: ", categories);
 
         categories.forEach(category => {
             structure[category] = {};
 
             const categoryDir = path.join(contentDir, category);
-            // console.log(categoryDir);
+            console.log(categoryDir);
 
             const problems = fs.readdirSync(categoryDir);
-            // console.log(problems);
+            console.log(problems);
 
             problems.forEach(problem => {
                 structure[category][problem] = {};
 
                 const problemDir = path.join(categoryDir, problem);
-                // console.log(problemDir);
+                console.log(problemDir);
                 const languages = fs.readdirSync(problemDir);
-                // console.log(languages);
+                console.log(languages);
 
                 for (let i = 0; i < languages.length; i++) {
                     structure[category][problem][languages[i]] = {};
 
                     const contentPath = path.join(contentDir, category, problem, languages[i]);
                     const files = fs.readdirSync(contentPath);
-                    // console.log(files);
+                    console.log(files);
 
                     let data: { [key: string]: string } = {};
 
