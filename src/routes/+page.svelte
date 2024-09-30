@@ -32,6 +32,8 @@
   };
 
   onMount(fetchData);
+
+  export const prerender = true;
 </script>
 
 <div class="relative flex">
