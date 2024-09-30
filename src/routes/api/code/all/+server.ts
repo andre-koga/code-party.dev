@@ -19,6 +19,7 @@ type AllData = {
 
 export const GET: RequestHandler = async () => {
     const contentDir = path.join(process.cwd(), 'content');
+    console.log(contentDir);
     const structure: AllData = {};
 
     try {
