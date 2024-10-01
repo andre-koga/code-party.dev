@@ -3,7 +3,7 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"dev": "vite dev",
+		"dev": "npm run generate-content && vite dev",
 		"generate-content": "node generateContent.js",
 		"build": "npm run generate-content && vite build",
 		"preview": "vite preview",

@@ -6,7 +6,7 @@
           "helloWorld.cs": "using System;\r\n\r\nclass Program\r\n{\r\n    static void Main()\r\n    {\r\n        Console.WriteLine(\"Hello, World!\");\r\n    }\r\n}"
         },
         "java": {
-          "helloWorld.java": "public class HelloWorld {\r\n    public static void main(String[] args) {\r\n        System.out.println(\"Hello, World!\");\r\n    }\r\n}"
+          "HelloWorld.java": "public class HelloWorld {\r\n    public static void main(String[] args) {\r\n        System.out.println(\"Hello, World!\");\r\n    }\r\n}"
         },
         "js": {
           "helloWorld.js": "console.log(\"Hello World!\");\r\n"
@@ -19,15 +19,15 @@
     "2-sorting": {
       "1-bubble-sort": {
         "js": {
-          "bubbleSort.js": "function bubbleSort(arr) {\r\n  let len = arr.length;\r\n  let swapped;\r\n  do {\r\n    swapped = false;\r\n    for (let i = 0; i < len; i++) {\r\n      if (arr[i] > arr[i + 1]) {\r\n        let tmp = arr[i];\r\n        arr[i] = arr[i + 1];\r\n        arr[i + 1] = tmp;\r\n        swapped = true;\r\n      }\r\n    }\r\n  } while (swapped);\r\n  return arr;\r\n}\r\n"
+          "bubbleSort.js": "function bubbleSort(arr) {\r\n  let len = arr.length;\r\n  let swapped;\r\n\r\n  do {\r\n    swapped = false;\r\n    for (let i = 0; i < len; i++) {\r\n      if (arr[i] > arr[i + 1]) {\r\n        let tmp = arr[i];\r\n        arr[i] = arr[i + 1];\r\n        arr[i + 1] = tmp;\r\n        swapped = true;\r\n      }\r\n    }\r\n  } while (swapped);\r\n\r\n  return arr;\r\n}\r\n"
         },
         "py": {
-          "BubbleSort.py": "def bubble_sort(arr):\r\n    n = len(arr)\r\n    for i in range(n):\r\n        for j in range(0, n-i-1):\r\n            if arr[j] > arr[j+1]:\r\n                arr[j], arr[j+1] = arr[j+1], arr[j]\r\n    return arr"
+          "BubbleSort.py": "def bubble_sort(arr):\r\n    n = len(arr)\r\n    \r\n    for i in range(n):\r\n        for j in range(0, n-i-1):\r\n            if arr[j] > arr[j+1]:\r\n                arr[j], arr[j+1] = arr[j+1], arr[j]\r\n                \r\n    return arr"
         }
       },
       "2-quick-sort": {
         "js": {
-          "quickSort.js": "function quickSort(arr) {\r\n  if (arr.length <= 1) {\r\n    return arr;\r\n  }\r\n\r\n  const pivot = arr[Math.floor(arr.length / 2)];\r\n  const left = [];\r\n  const right = [];\r\n\r\n  for (let i = 0; i < arr.length; i++) {\r\n    if (i === Math.floor(arr.length / 2)) continue;\r\n    if (arr[i] < pivot) {\r\n      left.push(arr[i]);\r\n    } else {\r\n      right.push(arr[i]);\r\n    }\r\n  }\r\n\r\n  return quickSort(left).concat(pivot, quickSort(right));\r\n}\r\n\r\n// Example usage\r\nconst array = [3, 6, 8, 10, 1, 2, 1];\r\nconsole.log(quickSort(array)); // Output: [1, 1, 2, 3, 6, 8, 10]\r\n"
+          "quickSort.js": "function quickSort(arr) {\r\n  if (arr.length <= 1) {\r\n    return arr;\r\n  }\r\n\r\n  const pivot = arr[Math.floor(arr.length / 2)];\r\n  const left = [];\r\n  const right = [];\r\n\r\n  for (let i = 0; i < arr.length; i++) {\r\n    if (i === Math.floor(arr.length / 2)) continue;\r\n    if (arr[i] < pivot) {\r\n      left.push(arr[i]);\r\n    } else {\r\n      right.push(arr[i]);\r\n    }\r\n  }\r\n\r\n  return quickSort(left).concat(pivot, quickSort(right));\r\n}\r\n"
         },
         "py": {
           "QuickSort.py": "def quick_sort(arr):\r\n    def partition(arr, low, high):\r\n        pivot = arr[high]\r\n        i = low - 1\r\n        for j in range(low, high):\r\n            if arr[j] < pivot:\r\n                i += 1\r\n                arr[i], arr[j] = arr[j], arr[i]\r\n        arr[i+1], arr[high] = arr[high], arr[i+1]\r\n        return i+1\r\n\r\n    def quick_sort_rec(arr, low, high):\r\n        if low < high:\r\n            pi = partition(arr, low, high)\r\n            quick_sort_rec(arr, low, pi-1)\r\n            quick_sort_rec(arr, pi+1, high)\r\n\r\n    quick_sort_rec(arr, 0, len(arr)-1)\r\n    return arr"

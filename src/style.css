@@ -4,10 +4,10 @@
 
 html,
 body {
-  @apply scroll-smooth bg-sky-50 text-black dark:text-gray-200 bg-gradient-to-b from-stone-200 to-orange-100 dark:bg-gradient-to-b dark:from-[#0D1728] dark:to-[#000000];
+  @apply scroll-smooth bg-sky-50 bg-gradient-to-b from-stone-200 to-orange-100 text-black dark:bg-gradient-to-b dark:from-slate-900 dark:to-slate-950 dark:text-gray-200;
 }
 
 body {
-  @apply min-h-screen bg-gradient-to-b from-stone-200 to-orange-100 dark:bg-gradient-to-b dark:from-[#0D1728] dark:to-[#000000];
+  @apply min-h-screen bg-gradient-to-b from-stone-200 to-orange-100 dark:bg-gradient-to-b dark:from-slate-900 dark:to-slate-950;
   background-attachment: fixed;
 }

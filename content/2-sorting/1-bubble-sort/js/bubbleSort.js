@@ -1,6 +1,7 @@
 function bubbleSort(arr) {
   let len = arr.length;
   let swapped;
+
   do {
     swapped = false;
     for (let i = 0; i < len; i++) {
@@ -12,5 +13,6 @@ function bubbleSort(arr) {
       }
     }
   } while (swapped);
+
   return arr;
 }

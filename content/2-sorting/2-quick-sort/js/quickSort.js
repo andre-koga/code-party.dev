@@ -18,7 +18,3 @@ function quickSort(arr) {
 
   return quickSort(left).concat(pivot, quickSort(right));
 }
-
-// Example usage
-const array = [3, 6, 8, 10, 1, 2, 1];
-console.log(quickSort(array)); // Output: [1, 1, 2, 3, 6, 8, 10]

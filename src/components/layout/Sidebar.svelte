@@ -16,7 +16,7 @@
 </script>
 
 <sidebar
-  class="sticky top-0 hidden h-screen flex-col border-r border-slate-400 p-4 font-medium md:flex md:w-60 dark:border-slate-600"
+  class="sticky top-0 hidden h-screen flex-col border-r border-stone-400 p-4 font-medium md:flex md:w-60 dark:border-slate-600"
 >
   {#each allCategories(allData) as category}
     <a
