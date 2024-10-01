@@ -19,28 +19,43 @@
   let selectedLanguages: string[] = [];
 
   // fetch data function
-  async function fetchData() {
-    try {
-      const response = await fetch("/api/content");
-      if (response.ok) {
-        allData = await response.json();
-      } else {
-        console.error("Error fetching code structure:", response.statusText);
-      }
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  }
+  // async function fetchData() {
+  //   try {
+  //     const response = await fetch("/api/content");
+  //     if (response.ok) {
+  //       allData = await response.json();
+  //     } else {
+  //       console.error("Error fetching code structure:", response.statusText);
+  //     }
+  //   } catch (error) {
+  //     console.error("Error:", error);
+  //   }
+  // }
 
-  onMount(() => {
-    fetchData();
-  });
+  // onMount(() => {
+  //   fetchData();
+  // });
+
+  export let data: {
+    users: {
+      name: string;
+      email: string;
+    }[];
+  };
 </script>
 
 <div class="relative flex">
   <Sidebar {allData} />
 
   <content class="grid gap-6 p-6">
+    {#each data.users as user}
+      <div class="flex items-center gap-4">
+        <div>
+          <h2 class="text-2xl font-medium">{user.name}</h2>
+          <p class="text-gray-500">{user.email}</p>
+        </div>
+      </div>
+    {/each}
     <!-- buttons with allowed languages -->
     <ul class="flex gap-2">
       {#each possibleLanguages as language}
