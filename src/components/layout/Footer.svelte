@@ -3,7 +3,7 @@
 </script>
 
 <footer
-  class="border-t border-stone-400 bg-stone-100 p-2 sm:p-12 sm:pb-4 dark:border-slate-600 dark:bg-gray-950"
+  class="border-t border-stone-400 bg-stone-100 p-2 sm:p-12 sm:pb-4 dark:border-slate-600 dark:bg-slate-900"
   id="footer"
 >
   <iframe

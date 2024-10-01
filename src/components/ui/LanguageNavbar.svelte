@@ -21,14 +21,14 @@
   {#each AllowedKeys().toSorted() as key}
     {#if selectedLanguages.includes(key)}
       <button
-        class="rounded-lg border border-stone-800 bg-stone-100 px-4 py-0.5 dark:border-slate-300 dark:bg-gray-950"
+        class="rounded-lg border border-stone-800 bg-stone-100 px-4 py-0.5 dark:border-slate-300 dark:bg-slate-900"
         on:click={() => updateSelectedLanguages(key)}
       >
         <LanguageLabel language={key} size="medium" />
       </button>
     {:else}
       <button
-        class="rounded-lg border border-stone-300 bg-stone-300 px-4 py-0.5 dark:border-slate-800 dark:bg-slate-800"
+        class="rounded-lg border border-stone-300 bg-stone-300 px-4 py-0.5 dark:border-slate-800 dark:bg-slate-700"
         on:click={() => updateSelectedLanguages(key)}
       >
         <LanguageLabel language={key} size="medium" />

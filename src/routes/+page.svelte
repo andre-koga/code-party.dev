@@ -72,7 +72,7 @@
                     </h4>
                     {#each allFiles(allData, category, problem, language) as file}
                       <pre
-                        class="overflow-auto rounded-lg bg-stone-100 p-4 text-xs font-light sm:text-sm dark:bg-gray-950">{fileContent(
+                        class="overflow-auto rounded-lg bg-stone-100 p-4 text-xs font-light sm:text-sm dark:bg-slate-950">{fileContent(
                           allData,
                           category,
                           problem,
