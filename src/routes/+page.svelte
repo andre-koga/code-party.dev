@@ -14,25 +14,27 @@
   import LanguageLabel from "$ui/LanguageLabel.svelte";
   import { onMount } from "svelte";
 
-  let allData: AllData = {};
-  let possibleLanguages = ["py", "js", "cs", "java"];
+  export let allData: AllData = {};
+  let possibleLanguages: string[] = ["js", "py", "java", "cs"].toSorted();
   let selectedLanguages: string[] = [];
 
-  const fetchData = async () => {
+  // fetch data function
+  async function fetchData() {
     try {
-      const response = await fetch("/api/code/all");
+      const response = await fetch("/api/content");
       if (response.ok) {
-        const data = await response.json();
-        allData = data;
+        allData = await response.json();
       } else {
-        console.error("Error fetching code structure");
+        console.error("Error fetching code structure:", response.statusText);
       }
     } catch (error) {
       console.error("Error:", error);
     }
-  };
+  }
 
-  onMount(fetchData);
+  onMount(() => {
+    fetchData();
+  });
 </script>
 
 <div class="relative flex">
