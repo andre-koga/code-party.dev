@@ -1,8 +1,8 @@
-import { users } from "../../users.json";
+import { allData } from "../../content.json";
 
 export async function load() {
-  console.log("load");
+  // console.log(allData);
   return {
-    users: users,
+    allData,
   };
 }
