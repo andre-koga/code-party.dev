@@ -37,7 +37,7 @@ export const allowedLanguages: LanguageData = {
         "extension": "cs",
         "website": "https://docs.microsoft.com/en-us/dotnet/csharp/",
     },
-    "ruby": {
+    "rb": {
         "name": "Ruby",
         "extension": "rb",
         "website": "https://www.ruby-lang.org/en/",
@@ -47,71 +47,71 @@ export const allowedLanguages: LanguageData = {
         "extension": "c",
         "website": "https://en.wikipedia.org/wiki/C_(programming_language)",
     },
-    "php": {
-        "name": "PHP",
-        "extension": "php",
-        "website": "https://www.php.net/",
-    },
-    "swift": {
-        "name": "Swift",
-        "extension": "swift",
-        "website": "https://swift.org/",
-    },
+    // "php": {
+    //     "name": "PHP",
+    //     "extension": "php",
+    //     "website": "https://www.php.net/",
+    // },
+    // "swift": {
+    //     "name": "Swift",
+    //     "extension": "swift",
+    //     "website": "https://swift.org/",
+    // },
     "go": {
         "name": "Go",
         "extension": "go",
         "website": "https://golang.org/",
     },
-    "rust": {
+    "rs": {
         "name": "Rust",
         "extension": "rs",
         "website": "https://www.rust-lang.org/",
     },
-    "lua": {
-        "name": "Lua",
-        "extension": "lua",
-        "website": "https://www.lua.org/",
-    },
-    "haskell": {
-        "name": "Haskell",
-        "extension": "hs",
-        "website": "https://www.haskell.org/",
-    },
-    "scala": {
-        "name": "Scala",
-        "extension": "scala",
-        "website": "https://www.scala-lang.org/",
-    },
-    "kotlin": {
-        "name": "Kotlin",
-        "extension": "kt",
-        "website": "https://kotlinlang.org/",
-    },
-    "r": {
-        "name": "R",
-        "extension": "r",
-        "website": "https://www.r-project.org/",
-    },
-    "perl": {
-        "name": "Perl",
-        "extension": "pl",
-        "website": "https://www.perl.org/",
-    },
-    "dart": {
-        "name": "Dart",
-        "extension": "dart",
-        "website": "https://dart.dev/",
-    },
-    "elixir": {
-        "name": "Elixir",
-        "extension": "ex",
-        "website": "https://elixir-lang.org/",
-    },
-    "clojure": {
-        "name": "Clojure",
-        "extension": "clj",
-        "website": "https://clojure.org/",
-    },
+    // "lua": {
+    //     "name": "Lua",
+    //     "extension": "lua",
+    //     "website": "https://www.lua.org/",
+    // },
+    // "hs": {
+    //     "name": "Haskell",
+    //     "extension": "hs",
+    //     "website": "https://www.haskell.org/",
+    // },
+    // "scala": {
+    //     "name": "Scala",
+    //     "extension": "scala",
+    //     "website": "https://www.scala-lang.org/",
+    // },
+    // "kt": {
+    //     "name": "Kotlin",
+    //     "extension": "kt",
+    //     "website": "https://kotlinlang.org/",
+    // },
+    // "r": {
+    //     "name": "R",
+    //     "extension": "r",
+    //     "website": "https://www.r-project.org/",
+    // },
+    // "pl": {
+    //     "name": "Perl",
+    //     "extension": "pl",
+    //     "website": "https://www.perl.org/",
+    // },
+    // "dart": {
+    //     "name": "Dart",
+    //     "extension": "dart",
+    //     "website": "https://dart.dev/",
+    // },
+    // "ex": {
+    //     "name": "Elixir",
+    //     "extension": "ex",
+    //     "website": "https://elixir-lang.org/",
+    // },
+    // "clj": {
+    //     "name": "Clojure",
+    //     "extension": "clj",
+    //     "website": "https://clojure.org/",
+    // },
 }
 
 export const SortedLanguaes = () => {

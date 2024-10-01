@@ -1,5 +1,5 @@
 <script lang="ts">
-  const icons: string[] = ["js", "java", "rust", "py", "cs"];
+  const icons: string[] = ["js", "java", "rs", "py", "cs"];
 </script>
 
 <footer

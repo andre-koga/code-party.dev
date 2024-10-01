@@ -17,7 +17,7 @@
   }
 </script>
 
-<ul class="flex flex-wrap gap-2">
+<ul class="flex flex-wrap justify-center gap-2">
   {#each AllowedKeys().toSorted() as key}
     {#if selectedLanguages.includes(key)}
       <button
@@ -28,7 +28,7 @@
       </button>
     {:else}
       <button
-        class="rounded-lg border border-stone-300 bg-stone-300 px-4 py-0.5 dark:border-slate-800 dark:bg-slate-700"
+        class="rounded-lg border border-stone-400 bg-stone-300 px-4 py-0.5 dark:border-slate-600 dark:bg-slate-700"
         on:click={() => updateSelectedLanguages(key)}
       >
         <LanguageLabel language={key} size="medium" />
@@ -36,14 +36,3 @@
     {/if}
   {/each}
 </ul>
-
-<p class="-my-2 text-center text-xs italic opacity-50">
-  is there a language not listed that you want?
-  <a href="#footer" class="underline">submit a request</a>
-  or
-  <a
-    href="https://github.com/andre-koga/code-party.dev"
-    target="_blank"
-    class="underline">collaborate on the project</a
-  >
-</p>

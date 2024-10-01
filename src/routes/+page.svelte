@@ -13,6 +13,7 @@
   import Sidebar from "$layout/Sidebar.svelte";
   import LanguageLabel from "$ui/LanguageLabel.svelte";
   import LanguageNavbar from "$ui/LanguageNavbar.svelte";
+  import OptionsNavbar from "$ui/OptionsNavbar.svelte";
   import { onMount } from "svelte";
 
   export let data: {
@@ -31,6 +32,23 @@
   function handleUpdate(event: CustomEvent<{ selectedLanguages: string[] }>) {
     selectedLanguages = event.detail.selectedLanguages;
   }
+
+  function handleOptionsUpdate(
+    event: CustomEvent<{
+      twoColumns: boolean;
+      sortBy: number;
+      sortAscending: boolean;
+    }>,
+  ) {
+    // console.log(event.detail);
+    twoColumns = event.detail.twoColumns;
+    sortBy = event.detail.sortBy;
+    sortAscending = event.detail.sortAscending;
+  }
+
+  let twoColumns: boolean = false;
+  let sortBy: number = 0;
+  let sortAscending: boolean = true;
 </script>
 
 {#if loading}
@@ -43,9 +61,24 @@
   <div class="relative flex">
     <Sidebar {allData} />
 
-    <content class="grid gap-6 p-6">
+    <content class="grid flex-grow gap-6 p-6">
       <!-- buttons with allowed languages -->
+      <!-- <h2 class="-mb-2 text-lg font-medium uppercase">Coding Languages</h2> -->
+
+      <p class="-my-2 text-center text-xs italic opacity-50">
+        is there a language not listed that you want?
+        <a href="#footer" class="underline">submit a request</a>
+        or
+        <a
+          href="https://github.com/andre-koga/code-party.dev"
+          target="_blank"
+          class="underline">collaborate on the project</a
+        >
+      </p>
+
       <LanguageNavbar {selectedLanguages} on:update={handleUpdate} />
+      <!-- <h2 class="-mb-2 text-lg font-medium uppercase">Options</h2> -->
+      <OptionsNavbar on:update={handleOptionsUpdate} />
 
       <div class="grid gap-6">
         <!-- show all of the files from allData -->
@@ -63,7 +96,9 @@
             >
               {titlefy(problem)}
             </h3>
-            <div class="grid gap-5">
+            <div
+              class="grid gap-5 {twoColumns ? 'grid-cols-2' : 'grid-cols-1'}"
+            >
               {#each allLanguages(allData, category, problem) as language}
                 {#if selectedLanguages.length === 0 || selectedLanguages.includes(language)}
                   <div class="overflow-hidden">
