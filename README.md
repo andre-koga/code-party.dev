@@ -1,7 +1,5 @@
 # ![Code Party](.github/codeparty.png)
 
-###### (Work In Progress!)
-
 # Code Party - Compare Coding Languages & Approaches
 
 [![Website](https://img.shields.io/badge/website-visit-blue)](https://code-party-dev.vercel.app/)
