@@ -4,6 +4,7 @@
   import "highlight.js/styles/github-dark.css";
   import { theme } from "$stores/themeStore";
   import CodeFooter from "./CodeFooter.svelte";
+  import { onMount } from "svelte";
 
   export let file: string = "";
   export let code: string = "";
@@ -20,6 +21,14 @@
         )
       : removeStylesheet();
   }
+
+  onMount(() => {
+    $theme == "dark"
+      ? loadStylesheet(
+          "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/github-dark.min.css",
+        )
+      : removeStylesheet();
+  });
 </script>
 
 <pre
