@@ -18,6 +18,11 @@
 <sidebar
   class="sticky top-0 hidden h-screen flex-col border-r border-stone-400 p-4 font-medium md:flex md:w-60 dark:border-slate-600"
 >
+  <a
+    href={"#top"}
+    class="rounded px-2 py-1 hover:bg-stone-100 dark:hover:bg-slate-700"
+    ><p>Back to top</p></a
+  >
   {#each allCategories(allData) as category}
     <a
       href={categoryURL(category)}

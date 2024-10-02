@@ -11,6 +11,8 @@
     problemURL,
   } from "$constants/querying";
   import Sidebar from "$layout/Sidebar.svelte";
+  import CodeBlockDark from "$ui/CodeBlockDark.svelte";
+  import CodeBlockLight from "$ui/CodeBlockLight.svelte";
   import LanguageLabel from "$ui/LanguageLabel.svelte";
   import LanguageNavbar from "$ui/LanguageNavbar.svelte";
   import OptionsNavbar from "$ui/OptionsNavbar.svelte";
@@ -40,7 +42,6 @@
       sortAscending: boolean;
     }>,
   ) {
-    // console.log(event.detail);
     twoColumns = event.detail.twoColumns;
     sortBy = event.detail.sortBy;
     sortAscending = event.detail.sortAscending;
@@ -61,7 +62,7 @@
   <div class="relative flex">
     <Sidebar {allData} />
 
-    <content class="grid flex-grow gap-6 p-6">
+    <content class="grid flex-grow gap-6 p-6" id="top">
       <!-- buttons with allowed languages -->
       <!-- <h2 class="-mb-2 text-lg font-medium uppercase">Coding Languages</h2> -->
 
@@ -79,6 +80,8 @@
       <LanguageNavbar {selectedLanguages} on:update={handleUpdate} />
       <!-- <h2 class="-mb-2 text-lg font-medium uppercase">Options</h2> -->
       <OptionsNavbar on:update={handleOptionsUpdate} />
+
+      <hr class="border-stone-300 dark:border-slate-800" />
 
       <div class="grid gap-6">
         <!-- show all of the files from allData -->
@@ -106,14 +109,26 @@
                       <LanguageLabel {language} size="medium" />
                     </h4>
                     {#each allFiles(allData, category, problem, language) as file}
-                      <pre
-                        class="overflow-auto rounded-lg bg-stone-100 p-4 text-xs font-light sm:text-sm dark:bg-slate-950">{fileContent(
-                          allData,
-                          category,
-                          problem,
-                          language,
-                          file,
-                        )}</pre>
+                      <CodeBlockDark
+                        file={fileContent(
+                          allData as any,
+                          category as any,
+                          problem as any,
+                          language as any,
+                          file as any,
+                        )}
+                        {language}
+                      />
+                      <CodeBlockLight
+                        file={fileContent(
+                          allData as any,
+                          category as any,
+                          problem as any,
+                          language as any,
+                          file as any,
+                        )}
+                        {language}
+                      />
                     {/each}
                   </div>
                 {/if}

@@ -8,6 +8,5 @@ body {
 }
 
 body {
-  @apply min-h-screen bg-gradient-to-b from-stone-200 to-orange-100 dark:bg-gradient-to-b dark:from-slate-800 dark:to-slate-900;
-  background-attachment: fixed;
+  @apply min-h-screen bg-stone-200 dark:bg-slate-900;
 }

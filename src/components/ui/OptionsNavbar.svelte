@@ -16,10 +16,11 @@
 </script>
 
 <div class="mx-auto">
-  <nav class="flex flex-wrap gap-4">
+  <nav class="flex flex-wrap justify-center gap-2">
     <div class="grid place-items-center">
+      <p class="text-xs text-stone-600 dark:text-slate-400">columns</p>
       <ul
-        class="flex overflow-hidden rounded-lg border border-stone-400 text-sm dark:border-slate-600"
+        class="flex items-center overflow-hidden rounded-lg border border-stone-400 text-xs sm:text-sm dark:border-slate-600"
       >
         <li
           class={!twoColumns
@@ -36,12 +37,12 @@
           <button on:click={() => (twoColumns = true)}><p>two</p></button>
         </li>
       </ul>
-      <p class="text-xs text-stone-600 dark:text-slate-400">columns</p>
     </div>
 
     <div class="grid place-items-center">
+      <p class="text-xs text-stone-600 dark:text-slate-400">sort by</p>
       <ul
-        class="flex overflow-hidden rounded-lg border border-stone-400 text-sm dark:border-slate-600"
+        class="flex items-center overflow-hidden rounded-lg border border-stone-400 text-xs sm:text-sm dark:border-slate-600"
       >
         {#each sortByOptions as sort, i}
           <li
@@ -53,12 +54,12 @@
           </li>
         {/each}
       </ul>
-      <p class="text-xs text-stone-600 dark:text-slate-400">sort by</p>
     </div>
 
     <div class="grid place-items-center">
+      <p class="text-xs text-stone-600 dark:text-slate-400">direction</p>
       <ul
-        class="flex overflow-hidden rounded-lg border border-stone-400 text-sm dark:border-slate-600"
+        class="flex items-center overflow-hidden rounded-lg border border-stone-400 text-xs sm:text-sm dark:border-slate-600"
       >
         <li
           class={sortAscending
@@ -79,7 +80,6 @@
           >
         </li>
       </ul>
-      <p class="text-xs text-stone-600 dark:text-slate-400">direction</p>
     </div>
   </nav>
 </div>

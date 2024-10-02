@@ -30,29 +30,27 @@
     title="YouForm Survey"
   ></iframe>
 
-  <a href="https://github.com/andre-koga/code-party.dev" target="_blank">
-    <div class="mt-8 grid gap-2 p-2 text-center sm:p-12">
-      <h1 class="text-5xl">CodeParty(💫)</h1>
-      <h2 class="text-xl opacity-70">Compare Coding Languages & Approaches</h2>
-      <ul class="mt-6 flex justify-center gap-5">
-        {#each icons as language}
-          <img
-            src={`/icons/${language}.svg`}
-            alt={language}
-            class="h-9 object-contain"
-          />
-        {/each}
-        <p class="px-1 text-2xl font-medium">...</p>
-      </ul>
-    </div>
-  </a>
+  <div class="mt-8 grid gap-2 p-2 text-center sm:p-12">
+    <h1 class="text-5xl">CodeParty(💫)</h1>
+    <h2 class="text-xl opacity-70">Compare Coding Languages & Approaches</h2>
+    <ul class="mt-6 flex justify-center gap-5">
+      {#each icons as language}
+        <img
+          src={`/icons/${language}.svg`}
+          alt={language}
+          class="h-9 object-contain"
+        />
+      {/each}
+      <p class="px-1 text-2xl font-medium">...</p>
+    </ul>
+  </div>
 
   <!-- footer message -->
   <div
     class="mt-8 rounded-lg bg-stone-200 py-2 text-center text-sm dark:bg-slate-800"
   >
     <p>
-      Made with <i>lots of bugs, sweat, and tears</i> (and ❤️) by{" "}
+      Made with <i>lots of bugs, sweat, and tears</i> by{" "}
       <a href="https://github.com/andre-koga" target="_blank">Koga</a>
     </p>
   </div>

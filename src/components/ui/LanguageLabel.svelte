@@ -23,7 +23,9 @@
       alt={language}
       class="mr-2 h-5 object-contain"
     />
-    <span class="font-medium">{allowedLanguages[language].name}</span>
+    <span class="text-sm font-medium sm:text-base"
+      >{allowedLanguages[language].name}</span
+    >
   </div>
 {:else}
   <div class="flex items-center">
