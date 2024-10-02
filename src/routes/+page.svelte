@@ -160,7 +160,7 @@
               {#each allLanguages(allData, category, problem) as language, i}
                 {#if selectedLanguages.length === 0 || selectedLanguages.includes(language)}
                   <div
-                    class="overflow-hidden"
+                    class="grid gap-2 overflow-hidden"
                     style="order: {orderOfLanguage(
                       allData,
                       category,
@@ -171,7 +171,7 @@
                       i,
                     )};"
                   >
-                    <div class="flex items-center">
+                    <div class="-mb-1 flex items-center">
                       <a
                         title="Share link"
                         class="rounded-md p-1 text-stone-400 active:bg-stone-300 dark:text-slate-600 dark:active:bg-slate-800"

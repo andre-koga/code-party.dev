@@ -23,7 +23,7 @@
 <div
   class="flex items-center gap-1.5 px-1.5 py-1 text-xs text-stone-600 sm:gap-3 dark:text-slate-400"
 >
-  <!-- <p>{file}</p> -->
+  <p class="hidden md:inline">{file}</p>
   <p><span class="hidden md:inline">chars=</span>{charCount()}</p>
   <p><span class="hidden md:inline">lines=</span>{lineCount()}</p>
   <p class="flex-grow"></p>

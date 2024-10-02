@@ -32,6 +32,39 @@
         "ts": {
           "helloWorld.ts": "console.log(\"Hello World!\");"
         }
+      },
+      "2-user-input": {
+        "c": {
+          "fgets.c": "#include <stdio.h>\r\n\r\nint main()\r\n{\r\n    char name[50];\r\n\r\n    printf(\"Enter your name: \");\r\n    fgets(name, sizeof(name), stdin);\r\n    printf(\"Your name is %s\", name);\r\n\r\n    return 0;\r\n}",
+          "scanf.c": "#include <stdio.h>\r\n\r\nint main()\r\n{\r\n    int age;\r\n\r\n    printf(\"Enter your age: \");\r\n    scanf(\"%d\", &age);\r\n    printf(\"Your age is %d\\n\", age);\r\n\r\n    return 0;\r\n}"
+        },
+        "cpp": {
+          "std_cin.cpp": "#include <iostream>\r\n\r\nint main()\r\n{\r\n    int age;\r\n\r\n    std::cout << \"Enter your age: \";\r\n    std::cin >> age;\r\n    std::cout << \"Your age is \" << age << std::endl;\r\n\r\n    return 0;\r\n}"
+        },
+        "cs": {
+          "ReadLine.cs": "using System;\r\n\r\nclass Program\r\n{\r\n    static void Main()\r\n    {\r\n        Console.Write(\"Enter your age: \");\r\n        string input = Console.ReadLine();\r\n        int age = int.Parse(input); // This will throw an exception if the input is not a valid integer\r\n\r\n        Console.WriteLine(\"Your age is \" + age);\r\n    }\r\n}"
+        },
+        "go": {
+          "read_string.go": "package main\r\n\r\nimport (\r\n    \"bufio\"\r\n    \"fmt\"\r\n    \"os\"\r\n    \"strconv\"\r\n    \"strings\"\r\n)\r\n\r\nfunc main() {\r\n    reader := bufio.NewReader(os.Stdin)\r\n\r\n    fmt.Print(\"Enter your age: \")\r\n    input, _ := reader.ReadString('\\n')\r\n    input = strings.TrimSpace(input)\r\n    age, _ := strconv.Atoi(input) // This will panic if the input is not a valid integer\r\n\r\n    fmt.Println(\"Your age is\", age)\r\n}"
+        },
+        "java": {
+          "Main.java": "import java.util.Scanner;\r\n\r\npublic class Main {\r\n    public static void main(String[] args) {\r\n        try (Scanner scanner = new Scanner(System.in)) {\r\n            System.out.print(\"Enter your age: \");\r\n            int age = scanner.nextInt();\r\n\r\n            System.out.println(\"Your age is \" + age);\r\n        }\r\n    }\r\n}"
+        },
+        "js": {
+          "nodeReadline.js": "const readline = require(\"readline\");\r\n\r\nconst rl = readline.createInterface({\r\n  input: process.stdin,\r\n  output: process.stdout,\r\n});\r\n\r\nrl.question(\"Enter your age: \", (input) => {\r\n  const age = parseInt(input, 10);\r\n\r\n  console.log(`Your age is ${age}`);\r\n  rl.close();\r\n});\r\n"
+        },
+        "py": {
+          "input.py": "def main():\r\n    age = input(\"Enter your age: \")\r\n    age = int(age)\r\n\r\n    print(f\"Your age is {age}\")\r\n\r\nif __name__ == \"__main__\":\r\n    main()"
+        },
+        "rb": {
+          "chomp.rb": "puts \"Enter your age: \"\r\ninput = gets.chomp\r\nage = input.to_i\r\n\r\nputs \"Your age is #{age}\""
+        },
+        "rs": {
+          "stdio.rs": "use std::io::{self, Write};\r\n\r\nfn main() {\r\n    print!(\"Enter your age: \");\r\n    io::stdout().flush().unwrap();\r\n\r\n    let mut input = String::new();\r\n    io::stdin().read_line(&mut input).expect(\"Failed to read line\");\r\n\r\n    let age: i32 = input.trim().parse().expect(\"Please enter a valid number\");\r\n\r\n    println!(\"Your age is {}\", age);\r\n}"
+        },
+        "ts": {
+          "nodeReadline.ts": "import * as readline from 'readline';\r\n\r\nconst rl = readline.createInterface({\r\n    input: process.stdin,\r\n    output: process.stdout\r\n});\r\n\r\nrl.question('Enter your age: ', (input: string) => {\r\n    const age = parseInt(input, 10);\r\n\r\n    console.log(`Your age is ${age}`);\r\n    rl.close();\r\n});"
+        }
       }
     },
     "2-sorting": {
