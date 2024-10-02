@@ -49,3 +49,14 @@ export function problemURL(category: string, example: string, hashtag: boolean =
         example.substring(2, example.length)
     );
 }
+
+export function codeblockURL(category: string, example: string, language: string, hashtag: boolean = true) {
+    return (
+        (hashtag ? "#" : "") +
+        category.substring(2, category.length) +
+        "." +
+        example.substring(2, example.length) +
+        "." +
+        language
+    );
+}

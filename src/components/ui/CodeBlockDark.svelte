@@ -3,8 +3,10 @@
   import hljs from "highlight.js";
   import "highlight.js/styles/github-dark.css";
   import { theme } from "$stores/themeStore";
+  import CodeFooter from "./CodeFooter.svelte";
 
   export let file: string = "";
+  export let code: string = "";
   export let language: string = "";
 
   function highlightCode(element: HTMLElement) {
@@ -21,7 +23,8 @@
 </script>
 
 <pre
-  class="hidden overflow-auto rounded-lg bg-stone-100 text-xs font-light sm:text-sm dark:block dark:bg-slate-950"><code
-    class="language-{language}"
-    use:highlightCode>{file}</code
-  ></pre>
+  class="hidden overflow-auto rounded-lg bg-stone-100 text-xs font-light sm:text-sm dark:block dark:bg-slate-950"><CodeFooter
+    {code}
+    {file}
+    {language}
+  /><code class="language-{language}" use:highlightCode>{code}</code></pre>

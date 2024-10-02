@@ -9,6 +9,7 @@
     type AllData,
     categoryURL,
     problemURL,
+    codeblockURL,
   } from "$constants/querying";
   import Sidebar from "$layout/Sidebar.svelte";
   import CodeBlockDark from "$ui/CodeBlockDark.svelte";
@@ -16,6 +17,7 @@
   import LanguageLabel from "$ui/LanguageLabel.svelte";
   import LanguageNavbar from "$ui/LanguageNavbar.svelte";
   import OptionsNavbar from "$ui/OptionsNavbar.svelte";
+  import { Link } from "lucide-svelte";
   import { onMount } from "svelte";
 
   export let data: {
@@ -47,6 +49,16 @@
     sortAscending = event.detail.sortAscending;
   }
 
+  function shareLink(text: string) {
+    const baseURL = "https://www.codeparty.dev/";
+
+    let finalURL = baseURL + text;
+
+    navigator.clipboard.writeText(finalURL).catch((err) => {
+      console.error("Failed to copy text: ", err);
+    });
+  }
+
   let twoColumns: boolean = false;
   let sortBy: number = 0;
   let sortAscending: boolean = true;
@@ -62,7 +74,7 @@
   <div class="relative flex">
     <Sidebar {allData} />
 
-    <content class="grid flex-grow gap-6 p-6" id="top">
+    <content class="grid flex-grow gap-6 px-2 py-6 sm:p-6" id="top">
       <!-- buttons with allowed languages -->
       <!-- <h2 class="-mb-2 text-lg font-medium uppercase">Coding Languages</h2> -->
 
@@ -105,12 +117,27 @@
               {#each allLanguages(allData, category, problem) as language}
                 {#if selectedLanguages.length === 0 || selectedLanguages.includes(language)}
                   <div class="overflow-hidden">
-                    <h4 class="px-2 pb-2">
-                      <LanguageLabel {language} size="medium" />
-                    </h4>
+                    <div class="flex items-center">
+                      <a
+                        title="Share link"
+                        class="rounded-md p-1 text-stone-400 active:bg-stone-300 dark:text-slate-600 dark:active:bg-slate-800"
+                        href={codeblockURL(category, problem, language)}
+                        on:click={() =>
+                          shareLink(codeblockURL(category, problem, language))}
+                        ><p><Link class="h-4 w-4" /></p></a
+                      >
+                      <h4
+                        class="p-2"
+                        id={codeblockURL(category, problem, language, false)}
+                      >
+                        <LanguageLabel {language} size="medium" />
+                      </h4>
+                      <div class="flex-grow"></div>
+                    </div>
                     {#each allFiles(allData, category, problem, language) as file}
                       <CodeBlockDark
-                        file={fileContent(
+                        {file}
+                        code={fileContent(
                           allData as any,
                           category as any,
                           problem as any,
@@ -120,7 +147,8 @@
                         {language}
                       />
                       <CodeBlockLight
-                        file={fileContent(
+                        {file}
+                        code={fileContent(
                           allData as any,
                           category as any,
                           problem as any,

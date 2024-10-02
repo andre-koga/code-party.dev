@@ -4,7 +4,7 @@
   export let sortAscending: boolean = true;
   import { createEventDispatcher } from "svelte";
 
-  const sortByOptions = ["alphabetical", "word count", "line count"];
+  const sortByOptions = ["alphabetical", "char count", "line count"];
 
   const dispatch = createEventDispatcher();
 
