@@ -59,6 +59,49 @@
     });
   }
 
+  function orderOfLanguage(
+    allData: AllData,
+    category: string,
+    problem: string,
+    language: string,
+    sortType: number,
+    ascendingType: boolean,
+    index: number,
+  ): string {
+    if (sortType == 0) {
+      // alphabetical
+      return (ascendingType ? "" : "-") + index.toString();
+    } else if (sortType == 1) {
+      // char count
+      let totalCharCount = 0;
+      allFiles(allData, category, problem, language).forEach((file) => {
+        totalCharCount += fileContent(
+          allData as any,
+          category as any,
+          problem as any,
+          language as any,
+          file as any,
+        ).length;
+      });
+
+      return (ascendingType ? "" : "-") + totalCharCount.toString();
+    } else if (sortType == 2) {
+      // line count
+      let totalLineCount = 0;
+      allFiles(allData, category, problem, language).forEach((file) => {
+        totalLineCount += fileContent(
+          allData as any,
+          category as any,
+          problem as any,
+          language as any,
+          file as any,
+        ).split("\n").length;
+      });
+
+      return (ascendingType ? "" : "-") + totalLineCount.toString();
+    } else return "";
+  }
+
   let twoColumns: boolean = false;
   let sortBy: number = 0;
   let sortAscending: boolean = true;
@@ -114,9 +157,20 @@
             <div
               class="grid gap-5 {twoColumns ? 'grid-cols-2' : 'grid-cols-1'}"
             >
-              {#each allLanguages(allData, category, problem) as language}
+              {#each allLanguages(allData, category, problem) as language, i}
                 {#if selectedLanguages.length === 0 || selectedLanguages.includes(language)}
-                  <div class="overflow-hidden">
+                  <div
+                    class="overflow-hidden"
+                    style="order: {orderOfLanguage(
+                      allData,
+                      category,
+                      problem,
+                      language,
+                      sortBy,
+                      sortAscending,
+                      i,
+                    )};"
+                  >
                     <div class="flex items-center">
                       <a
                         title="Share link"

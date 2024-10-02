@@ -10,3 +10,7 @@ body {
 body {
   @apply min-h-screen bg-stone-200 dark:bg-slate-900;
 }
+
+::selection {
+  @apply bg-sky-200 dark:bg-sky-900;
+}
