@@ -16,28 +16,30 @@
 </script>
 
 <sidebar
-  class="sticky top-0 hidden h-screen flex-col border-r border-stone-400 p-4 font-medium md:flex md:w-60 dark:border-slate-600"
+  class="relative hidden border-r border-stone-400 font-medium md:block md:w-72 lg:w-60 dark:border-slate-600"
 >
-  <a
-    href={"#top"}
-    class="rounded px-2 py-1 hover:bg-stone-100 dark:hover:bg-slate-700"
-    ><p>Back to top</p></a
-  >
-  {#each allCategories(allData) as category}
+  <div class="sticky top-0 flex flex-col p-4">
     <a
-      href={categoryURL(category)}
+      href={"#top"}
       class="rounded px-2 py-1 hover:bg-stone-100 dark:hover:bg-slate-700"
-      ><p>{titlefy(category)}</p></a
+      ><p>Back to top</p></a
     >
-    {#each allProblems(allData, category) as problem}
+    {#each allCategories(allData) as category}
       <a
-        href={problemURL(category, problem)}
-        class="rounded px-2 py-1 text-gray-500 hover:bg-stone-100 dark:text-slate-400 dark:hover:bg-slate-700"
+        href={categoryURL(category)}
+        class="rounded px-2 py-1 hover:bg-stone-100 dark:hover:bg-slate-700"
+        ><p>{titlefy(category)}</p></a
       >
-        <p>
-          {titlefy(problem)}
-        </p>
-      </a>
+      {#each allProblems(allData, category) as problem}
+        <a
+          href={problemURL(category, problem)}
+          class="rounded px-2 py-1 text-gray-500 hover:bg-stone-100 dark:text-slate-400 dark:hover:bg-slate-700"
+        >
+          <p>
+            {titlefy(problem)}
+          </p>
+        </a>
+      {/each}
     {/each}
-  {/each}
+  </div>
 </sidebar>

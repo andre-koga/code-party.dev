@@ -17,7 +17,7 @@ It is also inspired by the great tool [Component Party 🎉](https://component-p
 
 ## How It Works
 
-- **Simple Problems**: Each comparison includes basic problems like "Hello, World!" or simple input/output tasks.
+- **Simple Problems**: Each comparison includes basic problems like "Hello World!" or simple input/output tasks.
 - **Common Algorithms**: Look at more complex implementations such as BFS, DFS, and sorting algorithms in various languages.
 - **Code Snippets**: Each problem is presented with side-by-side code snippets for different languages (e.g., Python, JavaScript, C++, Java).
 
