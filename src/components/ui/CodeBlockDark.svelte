@@ -4,7 +4,7 @@
   import "highlight.js/styles/github-dark.css";
   import { theme } from "$stores/themeStore";
   import CodeFooter from "./CodeFooter.svelte";
-  import { onMount } from "svelte";
+  import { afterUpdate } from "svelte";
 
   export let file: string = "";
   export let code: string = "";
@@ -14,15 +14,7 @@
     hljs.highlightElement(element);
   }
 
-  $: {
-    $theme == "dark"
-      ? loadStylesheet(
-          "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/github-dark.min.css",
-        )
-      : removeStylesheet();
-  }
-
-  onMount(() => {
+  afterUpdate(() => {
     $theme == "dark"
       ? loadStylesheet(
           "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/github-dark.min.css",
