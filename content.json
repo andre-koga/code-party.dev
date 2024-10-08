@@ -75,109 +75,109 @@
     "2-sorting": {
       "1-bubble-sort": {
         "c": {
-          "bubble_sort.c": ""
+          "bubble_sort.c": "void bubbleSort(int arr[], int n)\r\n{\r\n    for (int i = 0; i < n - 1; i++)\r\n    {\r\n        for (int j = 0; j < n - i - 1; j++)\r\n        {\r\n            if (arr[j] > arr[j + 1])\r\n            {\r\n                int temp = arr[j];\r\n                arr[j] = arr[j + 1];\r\n                arr[j + 1] = temp;\r\n            }\r\n        }\r\n    }\r\n}"
         },
         "cpp": {
-          "bubble_sort.cpp": ""
+          "bubble_sort.cpp": "#include <algorithm>\r\n\r\nvoid bubbleSort(int arr[], int n)\r\n{\r\n    for (int i = 0; i < n - 1; i++)\r\n    {\r\n        for (int j = 0; j < n - i - 1; j++)\r\n        {\r\n            if (arr[j] > arr[j + 1])\r\n            {\r\n                std::swap(arr[j], arr[j + 1]);\r\n            }\r\n        }\r\n    }\r\n}"
         },
         "cs": {
-          "bubble-sort.cs": ""
+          "bubble-sort.cs": "public class BubbleSort\r\n{\r\n    public static void Sort(int[] arr)\r\n    {\r\n        int n = arr.Length;\r\n        for (int i = 0; i < n - 1; i++)\r\n        {\r\n            for (int j = 0; j < n - i - 1; j++)\r\n            {\r\n                if (arr[j] > arr[j + 1])\r\n                {\r\n                    int temp = arr[j];\r\n                    arr[j] = arr[j + 1];\r\n                    arr[j + 1] = temp;\r\n                }\r\n            }\r\n        }\r\n    }\r\n}"
         },
         "go": {
-          "bubble_sort.go": ""
+          "bubble_sort.go": "package main\r\n\r\nfunc bubbleSort(arr []int) {\r\n    n := len(arr)\r\n    for i := 0; i < n-1; i++ {\r\n        for j := 0; j < n-i-1; j++ {\r\n            if arr[j] > arr[j+1] {\r\n                arr[j], arr[j+1] = arr[j+1], arr[j]\r\n            }\r\n        }\r\n    }\r\n}"
         },
         "hs": {
-          "bubble-sort.hs": ""
+          "bubble-sort.hs": "bubbleSort :: Ord a => [a] -> [a]\r\nbubbleSort xs = foldr (\\_ -> bubble) xs [1..length xs - 1]\r\n  where bubble [] = []\r\n        bubble [x] = [x]\r\n        bubble (x:y:xs) = if x > y then y : bubble (x:xs) else x : bubble (y:xs)"
         },
         "java": {
-          "bubble-sort.java": ""
+          "BubbleSort.java": "public class BubbleSort {\r\n    public static void bubbleSort(int[] arr) {\r\n        int n = arr.length;\r\n        for (int i = 0; i < n - 1; i++) {\r\n            for (int j = 0; j < n - i - 1; j++) {\r\n                if (arr[j] > arr[j + 1]) {\r\n                    int temp = arr[j];\r\n                    arr[j] = arr[j + 1];\r\n                    arr[j + 1] = temp;\r\n                }\r\n            }\r\n        }\r\n    }\r\n}"
         },
         "js": {
-          "bubbleSort.js": "function bubbleSort(arr) {\r\n  let len = arr.length;\r\n  let swapped;\r\n\r\n  do {\r\n    swapped = false;\r\n    for (let i = 0; i < len; i++) {\r\n      if (arr[i] > arr[i + 1]) {\r\n        let tmp = arr[i];\r\n        arr[i] = arr[i + 1];\r\n        arr[i + 1] = tmp;\r\n        swapped = true;\r\n      }\r\n    }\r\n  } while (swapped);\r\n\r\n  return arr;\r\n}\r\n"
+          "bubbleSort.js": "function bubbleSort(arr) {\r\n  let len = arr.length;\r\n  let swapped;\r\n\r\n  do {\r\n    swapped = false;\r\n    for (let i = 0; i < len - 1; i++) {\r\n      if (arr[i] > arr[i + 1]) {\r\n        [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];\r\n        swapped = true;\r\n      }\r\n    }\r\n  } while (swapped);\r\n\r\n  return arr;\r\n}"
         },
         "py": {
-          "BubbleSort.py": "def bubble_sort(arr):\r\n    n = len(arr)\r\n    \r\n    for i in range(n):\r\n        for j in range(0, n-i-1):\r\n            if arr[j] > arr[j+1]:\r\n                arr[j], arr[j+1] = arr[j+1], arr[j]\r\n                \r\n    return arr"
+          "BubbleSort.py": "def bubble_sort(arr):\r\n    n = len(arr)\r\n    for i in range(n - 1):\r\n        for j in range(n - i - 1):\r\n            if arr[j] > arr[j + 1]:\r\n                arr[j], arr[j + 1] = arr[j + 1], arr[j]\r\n    return arr"
         },
         "rb": {
-          "bubble_sort.rb": ""
+          "bubble_sort.rb": "def bubble_sort(arr)\r\n  n = arr.length\r\n  (n-1).times do |i|\r\n    (n-i-1).times do |j|\r\n      if arr[j] > arr[j+1]\r\n        arr[j], arr[j+1] = arr[j+1], arr[j]\r\n      end\r\n    end\r\n  end\r\n  arr\r\nend"
         },
         "rs": {
-          "bubble_sort.rs": ""
+          "bubble_sort.rs": "fn bubble_sort(arr: &mut [i32]) {\r\n    let n = arr.len();\r\n    for i in 0..n {\r\n        for j in 0..n-i-1 {\r\n            if arr[j] > arr[j+1] {\r\n                arr.swap(j, j+1);\r\n            }\r\n        }\r\n    }\r\n}"
         },
         "ts": {
-          "bubble-sort.ts": ""
+          "bubble-sort.ts": "function BubbleSort(arr: number[]): number[] {\r\n    let n = arr.length;\r\n    for (let i = 0; i < n - 1; i++) {\r\n        for (let j = 0; j < n - i - 1; j++) {\r\n            if (arr[j] > arr[j + 1]) {\r\n                [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];\r\n            }\r\n        }\r\n    }\r\n    return arr;\r\n}"
         }
       },
       "2-quick-sort": {
         "c": {
-          "quick_sort.c": ""
+          "quick_sort.c": "#include <stdio.h>\r\n\r\nvoid swap(int *a, int *b)\r\n{\r\n    int temp = *a;\r\n    *a = *b;\r\n    *b = temp;\r\n}\r\n\r\nint partition(int arr[], int low, int high)\r\n{\r\n    int pivot = arr[high];\r\n    int i = (low - 1);\r\n\r\n    for (int j = low; j <= high - 1; j++)\r\n    {\r\n        if (arr[j] < pivot)\r\n        {\r\n            i++;\r\n            swap(&arr[i], &arr[j]);\r\n        }\r\n    }\r\n    swap(&arr[i + 1], &arr[high]);\r\n    return (i + 1);\r\n}\r\n\r\nvoid quickSort(int arr[], int low, int high)\r\n{\r\n    if (low < high)\r\n    {\r\n        int pi = partition(arr, low, high);\r\n\r\n        quickSort(arr, low, pi - 1);\r\n        quickSort(arr, pi + 1, high);\r\n    }\r\n}"
         },
         "cpp": {
-          "quick_sort.cpp": ""
+          "quick_sort.cpp": "#include <iostream>\r\n#include <vector>\r\n\r\nvoid swap(int &a, int &b)\r\n{\r\n    int temp = a;\r\n    a = b;\r\n    b = temp;\r\n}\r\n\r\nint partition(std::vector<int> &arr, int low, int high)\r\n{\r\n    int pivot = arr[high];\r\n    int i = low - 1;\r\n\r\n    for (int j = low; j <= high - 1; j++)\r\n    {\r\n        if (arr[j] < pivot)\r\n        {\r\n            i++;\r\n            swap(arr[i], arr[j]);\r\n        }\r\n    }\r\n    swap(arr[i + 1], arr[high]);\r\n    return i + 1;\r\n}\r\n\r\nvoid quickSort(std::vector<int> &arr, int low, int high)\r\n{\r\n    if (low < high)\r\n    {\r\n        int pi = partition(arr, low, high);\r\n\r\n        quickSort(arr, low, pi - 1);\r\n        quickSort(arr, pi + 1, high);\r\n    }\r\n}"
         },
         "cs": {
-          "quick-sort.cs": ""
+          "quick-sort.cs": "using System;\r\n\r\npublic class QuickSort\r\n{\r\n    public static void Sort(int[] arr, int low, int high)\r\n    {\r\n        if (low < high)\r\n        {\r\n            int pi = Partition(arr, low, high);\r\n\r\n            Sort(arr, low, pi - 1);\r\n            Sort(arr, pi + 1, high);\r\n        }\r\n    }\r\n\r\n    private static int Partition(int[] arr, int low, int high)\r\n    {\r\n        int pivot = arr[high];\r\n        int i = (low - 1);\r\n\r\n        for (int j = low; j <= high - 1; j++)\r\n        {\r\n            if (arr[j] < pivot)\r\n            {\r\n                i++;\r\n                Swap(ref arr[i], ref arr[j]);\r\n            }\r\n        }\r\n        Swap(ref arr[i + 1], ref arr[high]);\r\n        return (i + 1);\r\n    }\r\n\r\n    private static void Swap(ref int a, ref int b)\r\n    {\r\n        int temp = a;\r\n        a = b;\r\n        b = temp;\r\n    }\r\n}"
         },
         "go": {
-          "quick_sort.go": ""
+          "quick_sort.go": "package main\r\n\r\nimport (\r\n    \"fmt\"\r\n)\r\n\r\nfunc quickSort(arr []int, low, high int) {\r\n    if low < high {\r\n        pi := partition(arr, low, high)\r\n        quickSort(arr, low, pi-1)\r\n        quickSort(arr, pi+1, high)\r\n    }\r\n}\r\n\r\nfunc partition(arr []int, low, high int) int {\r\n    pivot := arr[high]\r\n    i := low - 1\r\n\r\n    for j := low; j <= high-1; j++ {\r\n        if arr[j] < pivot {\r\n            i++\r\n            arr[i], arr[j] = arr[j], arr[i]\r\n        }\r\n    }\r\n    arr[i+1], arr[high] = arr[high], arr[i+1]\r\n    return i + 1\r\n}"
         },
         "hs": {
-          "quick-sort.hs": ""
+          "quick-sort.hs": "quicksort [] = []\r\nquicksort (p:xs) = quicksort [x | x <- xs, x < p] ++ [p] ++ quicksort [x | x <- xs, x >= p]"
         },
         "java": {
-          "quick-sort.java": ""
+          "QuickSort.java": "public class QuickSort {\r\n    public static void quickSort(int[] arr, int low, int high) {\r\n        if (low < high) {\r\n            int pi = partition(arr, low, high);\r\n\r\n            quickSort(arr, low, pi - 1);\r\n            quickSort(arr, pi + 1, high);\r\n        }\r\n    }\r\n\r\n    private static int partition(int[] arr, int low, int high) {\r\n        int pivot = arr[high];\r\n        int i = (low - 1);\r\n\r\n        for (int j = low; j <= high - 1; j++) {\r\n            if (arr[j] < pivot) {\r\n                i++;\r\n                swap(arr, i, j);\r\n            }\r\n        }\r\n        swap(arr, i + 1, high);\r\n        return (i + 1);\r\n    }\r\n\r\n    private static void swap(int[] arr, int i, int j) {\r\n        int temp = arr[i];\r\n        arr[i] = arr[j];\r\n        arr[j] = temp;\r\n    }\r\n}"
         },
         "js": {
-          "quickSort.js": "function quickSort(arr) {\r\n  if (arr.length <= 1) {\r\n    return arr;\r\n  }\r\n\r\n  const pivot = arr[Math.floor(arr.length / 2)];\r\n  const left = [];\r\n  const right = [];\r\n\r\n  for (let i = 0; i < arr.length; i++) {\r\n    if (i === Math.floor(arr.length / 2)) continue;\r\n    if (arr[i] < pivot) {\r\n      left.push(arr[i]);\r\n    } else {\r\n      right.push(arr[i]);\r\n    }\r\n  }\r\n\r\n  return quickSort(left).concat(pivot, quickSort(right));\r\n}\r\n"
+          "quickSort.js": "function quickSort(arr, low = 0, high = arr.length - 1) {\r\n    if (low < high) {\r\n        const pi = partition(arr, low, high);\r\n\r\n        quickSort(arr, low, pi - 1);\r\n        quickSort(arr, pi + 1, high);\r\n    }\r\n}\r\n\r\nfunction partition(arr, low, high) {\r\n    const pivot = arr[high];\r\n    let i = low - 1;\r\n\r\n    for (let j = low; j <= high - 1; j++) {\r\n        if (arr[j] < pivot) {\r\n            i++;\r\n            [arr[i], arr[j]] = [arr[j], arr[i]];\r\n        }\r\n    }\r\n    [arr[i + 1], arr[high]] = [arr[high], arr[i + 1]];\r\n    return i + 1;\r\n}"
         },
         "py": {
-          "QuickSort.py": "def quick_sort(arr):\r\n    def partition(arr, low, high):\r\n        pivot = arr[high]\r\n        i = low - 1\r\n        for j in range(low, high):\r\n            if arr[j] < pivot:\r\n                i += 1\r\n                arr[i], arr[j] = arr[j], arr[i]\r\n        arr[i+1], arr[high] = arr[high], arr[i+1]\r\n        return i+1\r\n\r\n    def quick_sort_rec(arr, low, high):\r\n        if low < high:\r\n            pi = partition(arr, low, high)\r\n            quick_sort_rec(arr, low, pi-1)\r\n            quick_sort_rec(arr, pi+1, high)\r\n\r\n    quick_sort_rec(arr, 0, len(arr)-1)\r\n    return arr"
+          "QuickSort.py": "def quick_sort(arr, low=0, high=None):\r\n    if high is None:\r\n        high = len(arr) - 1\r\n    if low < high:\r\n        pi = partition(arr, low, high)\r\n        quick_sort(arr, low, pi - 1)\r\n        quick_sort(arr, pi + 1, high)\r\n\r\ndef partition(arr, low, high):\r\n    pivot = arr[high]\r\n    i = low - 1\r\n    for j in range(low, high):\r\n        if arr[j] < pivot:\r\n            i += 1\r\n            arr[i], arr[j] = arr[j], arr[i]\r\n    arr[i + 1], arr[high] = arr[high], arr[i + 1]\r\n    return i + 1"
         },
         "rb": {
-          "quick_sort.rb": ""
+          "quick_sort.rb": "def quick_sort(arr, low = 0, high = arr.length - 1)\r\n  if low < high\r\n    pi = partition(arr, low, high)\r\n    quick_sort(arr, low, pi - 1)\r\n    quick_sort(arr, pi + 1, high)\r\n  end\r\nend\r\n\r\ndef partition(arr, low, high)\r\n  pivot = arr[high]\r\n  i = low - 1\r\n  (low...high).each do |j|\r\n    if arr[j] < pivot\r\n      i += 1\r\n      arr[i], arr[j] = arr[j], arr[i]\r\n    end\r\n  end\r\n  arr[i + 1], arr[high] = arr[high], arr[i + 1]\r\n  i + 1\r\nend"
         },
         "rs": {
-          "quick_sort.rs": ""
+          "quick_sort.rs": "fn quick_sort(arr: &mut [i32], low: isize, high: isize) {\r\n    if low < high {\r\n        let pi = partition(arr, low, high);\r\n        quick_sort(arr, low, pi - 1);\r\n        quick_sort(arr, pi + 1, high);\r\n    }\r\n}\r\n\r\nfn partition(arr: &mut [i32], low: isize, high: isize) -> isize {\r\n    let pivot = arr[high as usize];\r\n    let mut i = low - 1;\r\n\r\n    for j in low..high {\r\n        if arr[j as usize] < pivot {\r\n            i += 1;\r\n            arr.swap(i as usize, j as usize);\r\n        }\r\n    }\r\n    arr.swap((i + 1) as usize, high as usize);\r\n    i + 1\r\n}"
         },
         "ts": {
-          "quick-sort.ts": ""
+          "quick-sort.ts": "function QuickSort(arr: number[], low: number = 0, high: number = arr.length - 1): void {\r\n    if (low < high) {\r\n        const pi = partition(arr, low, high);\r\n        quickSort(arr, low, pi - 1);\r\n        quickSort(arr, pi + 1, high);\r\n    }\r\n}\r\n\r\nfunction Partition(arr: number[], low: number, high: number): number {\r\n    const pivot = arr[high];\r\n    let i = low - 1;\r\n\r\n    for (let j = low; j < high; j++) {\r\n        if (arr[j] < pivot) {\r\n            i++;\r\n            [arr[i], arr[j]] = [arr[j], arr[i]]; // Swap elements\r\n        }\r\n    }\r\n    [arr[i + 1], arr[high]] = [arr[high], arr[i + 1]]; // Swap elements\r\n    return i + 1;\r\n}"
         }
       }
     },
     "3-leetcode": {
       "1-two-sum": {
         "c": {
-          "two_sum.c": ""
+          "two_sum.c": "#include <stdio.h>\r\n#include <stdlib.h>\r\n\r\nint *twoSum(int *nums, int numsSize, int target, int *returnSize)\r\n{\r\n    for (int i = 0; i < numsSize; i++)\r\n    {\r\n        for (int j = i + 1; j < numsSize; j++)\r\n        {\r\n            if (nums[i] + nums[j] == target)\r\n            {\r\n                int *result = (int *)malloc(2 * sizeof(int));\r\n                result[0] = i;\r\n                result[1] = j;\r\n                *returnSize = 2;\r\n                return result;\r\n            }\r\n        }\r\n    }\r\n    *returnSize = 0;\r\n    return NULL;\r\n}"
         },
         "cpp": {
-          "two_sum.cpp": ""
+          "two_sum.cpp": "#include <iostream>\r\n#include <vector>\r\n#include <unordered_map>\r\n\r\nstd::vector<int> twoSum(const std::vector<int> &nums, int target)\r\n{\r\n    std::unordered_map<int, int> num_map;\r\n    for (int i = 0; i < nums.size(); i++)\r\n    {\r\n        int complement = target - nums[i];\r\n        if (num_map.find(complement) != num_map.end())\r\n        {\r\n            return {num_map[complement], i};\r\n        }\r\n        num_map[nums[i]] = i;\r\n    }\r\n    return {};\r\n}"
         },
         "cs": {
-          "TwoSum.cs": ""
+          "TwoSum.cs": "using System;\r\nusing System.Collections.Generic;\r\n\r\npublic class TwoSumSolution\r\n{\r\n    public static int[] TwoSum(int[] nums, int target)\r\n    {\r\n        Dictionary<int, int> numMap = new Dictionary<int, int>();\r\n        for (int i = 0; i < nums.Length; i++)\r\n        {\r\n            int complement = target - nums[i];\r\n            if (numMap.ContainsKey(complement))\r\n            {\r\n                return new int[] { numMap[complement], i };\r\n            }\r\n            numMap[nums[i]] = i;\r\n        }\r\n        return new int[0];\r\n    }\r\n}"
         },
         "go": {
-          "two_sum.go": ""
+          "two_sum.go": "package main\r\n\r\nfunc twoSum(nums []int, target int) []int {\r\n    numMap := make(map[int]int)\r\n    for i, num := range nums {\r\n        complement := target - num\r\n        if idx, ok := numMap[complement]; ok {\r\n            return []int{idx, i}\r\n        }\r\n        numMap[num] = i\r\n    }\r\n    return nil\r\n}"
         },
         "hs": {
-          "two-sum.hs": ""
+          "two-sum.hs": "import qualified Data.Map.Strict as Map\r\n\r\ntwoSum :: [Int] -> Int -> [(Int, Int)]\r\ntwoSum nums target = \r\n    [(x, y) | (x, y) <- zip nums [0..], \r\n              y' <- Map.lookup (target - x) seen, \r\n              y /= y']\r\n  where seen = Map.fromList $ zip nums [0..]"
         },
         "java": {
-          "TwoSum.java": ""
+          "TwoSum.java": "import java.util.HashMap;\r\nimport java.util.Map;\r\n\r\npublic class TwoSum {\r\n    public static int[] twoSum(int[] nums, int target) {\r\n        Map<Integer, Integer> numMap = new HashMap<>();\r\n        for (int i = 0; i < nums.length; i++) {\r\n            int complement = target - nums[i];\r\n            if (numMap.containsKey(complement)) {\r\n                return new int[] { numMap.get(complement), i };\r\n            }\r\n            numMap.put(nums[i], i);\r\n        }\r\n        return null;\r\n    }\r\n}"
         },
         "js": {
-          "twoSum.js": ""
+          "twoSum.js": "function twoSum(nums, target) {\r\n    const numMap = new Map();\r\n    for (let i = 0; i < nums.length; i++) {\r\n        const complement = target - nums[i];\r\n        if (numMap.has(complement)) {\r\n            return [numMap.get(complement), i];\r\n        }\r\n        numMap.set(nums[i], i);\r\n    }\r\n    return [];\r\n}"
         },
         "py": {
-          "two_sum.py": ""
+          "two_sum.py": "def two_sum(nums, target):\r\n    num_map = {}\r\n    for i, num in enumerate(nums):\r\n        complement = target - num\r\n        if complement in num_map:\r\n            return [num_map[complement], i]\r\n        num_map[num] = i\r\n    return None"
         },
         "rb": {
-          "two_sum.rb": ""
+          "two_sum.rb": "def two_sum(nums, target)\r\n  seen = {}\r\n  nums.each_with_index do |num, index|\r\n    complement = target - num\r\n    if seen.key?(complement)\r\n      return [seen[complement], index]\r\n    end\r\n    seen[num] = index\r\n  end\r\n  []\r\nend"
         },
         "rs": {
-          "two_sum.rs": ""
+          "two_sum.rs": "use std::collections::HashMap;\r\n\r\nimpl Solution {\r\n    pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {\r\n        let mut complements = HashMap::new();\r\n        for (i, &num) in nums.iter().enumerate() {\r\n            if let Some(&j) = complements.get(&num) {\r\n                return vec![j as i32, i as i32];\r\n            }\r\n            complements.insert(target - num, i);\r\n        }\r\n        vec![]\r\n    }\r\n}"
         },
         "ts": {
-          "twoSum.ts": ""
+          "twoSum.ts": "function TwoSum(nums: number[], target: number): number[] {\r\n    const seen: Map<number, number> = new Map();\r\n    for (let i = 0; i < nums.length; i++) {\r\n        const complement = target - nums[i];\r\n        if (seen.has(complement)) {\r\n            return [seen.get(complement)!, i];\r\n        }\r\n        seen.set(nums[i], i);\r\n    }\r\n    return [];\r\n}"
         }
       }
     }

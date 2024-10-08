@@ -118,6 +118,19 @@
     <Sidebar {allData} />
 
     <content class="grid flex-grow gap-6 px-2 py-6 sm:p-6" id="top">
+
+      <!-- table comparing all of the allowed languages? -->
+      <!-- <h2
+            id="languages"
+            class="pt-4 text-4xl font-medium"
+          >
+          Languages
+          </h2>
+
+      <div>
+
+      </div> -->
+
       <!-- buttons with allowed languages -->
       <!-- <h2 class="-mb-2 text-lg font-medium uppercase">Coding Languages</h2> -->
 
@@ -137,6 +150,15 @@
       <OptionsNavbar on:update={handleOptionsUpdate} />
 
       <hr class="border-stone-300 dark:border-slate-800" />
+
+      <div class="mx-auto container p-4 dark:text-slate-500 text-stone-500 bg-stone-300 italic dark:bg-slate-800 rounded-lg">
+        <p class="text-xs text-center">
+          disclaimer! this project does not try to argue which language is the best
+          or which implementation is the most efficient. the goal is to show
+          different ways to solve the same problem in different languages. bear in mind
+          a single problem can be solved in many ways.
+        </p>
+      </div>
 
       <div class="grid gap-6">
         <!-- show all of the files from allData -->
@@ -192,7 +214,6 @@
                     </div>
                     {#each allFiles(allData, category, problem, language) as file}
                       <CodeBlockDark
-                        {file}
                         code={fileContent(
                           allData as any,
                           category as any,
@@ -203,7 +224,6 @@
                         {language}
                       />
                       <CodeBlockLight
-                        {file}
                         code={fileContent(
                           allData as any,
                           category as any,
