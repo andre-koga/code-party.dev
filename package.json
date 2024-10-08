@@ -4,6 +4,8 @@
 	"private": true,
 	"scripts": {
 		"dev": "npm run generate-content && vite dev",
+		"content": "node setupContent.js",
+		"newLang": "node redoAllowedLanguages.js",
 		"generate-content": "node generateContent.js",
 		"build": "npm run generate-content && vite build",
 		"preview": "vite preview",

@@ -18,7 +18,7 @@
 </script>
 
 <ul class="flex flex-wrap justify-center gap-2">
-  {#each AllowedKeys().toSorted() as key}
+  {#each AllowedKeys.toSorted() as key}
     {#if selectedLanguages.includes(key)}
       <button
         class="rounded-lg border border-stone-800 bg-stone-100 px-2 py-0.5 sm:px-4 dark:border-slate-300 dark:bg-slate-900"

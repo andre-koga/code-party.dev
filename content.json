@@ -14,6 +14,9 @@
         "go": {
           "hello_world.go": "package main\r\n\r\nimport \"fmt\"\r\n\r\nfunc main() {\r\n\tfmt.Println(\"Hello World!\")\r\n}"
         },
+        "hs": {
+          "hello-world.hs": "main :: IO ()\r\nmain = putStrLn \"Hello, World!\""
+        },
         "java": {
           "HelloWorld.java": "public class HelloWorld {\r\n    public static void main(String[] args) {\r\n        System.out.println(\"Hello World!\");\r\n    }\r\n}"
         },
@@ -35,53 +38,146 @@
       },
       "2-user-input": {
         "c": {
-          "fgets.c": "#include <stdio.h>\r\n\r\nint main()\r\n{\r\n    char name[50];\r\n\r\n    printf(\"Enter your name: \");\r\n    fgets(name, sizeof(name), stdin);\r\n    printf(\"Your name is %s\", name);\r\n\r\n    return 0;\r\n}",
-          "scanf.c": "#include <stdio.h>\r\n\r\nint main()\r\n{\r\n    int age;\r\n\r\n    printf(\"Enter your age: \");\r\n    scanf(\"%d\", &age);\r\n    printf(\"Your age is %d\\n\", age);\r\n\r\n    return 0;\r\n}"
+          "user_input.c": "#include <stdio.h>\r\n\r\nint main()\r\n{\r\n    char input[100];\r\n    scanf(\"%99s\", input);\r\n    return 0;\r\n}"
         },
         "cpp": {
-          "std_cin.cpp": "#include <iostream>\r\n\r\nint main()\r\n{\r\n    int age;\r\n\r\n    std::cout << \"Enter your age: \";\r\n    std::cin >> age;\r\n    std::cout << \"Your age is \" << age << std::endl;\r\n\r\n    return 0;\r\n}"
+          "user_input.cpp": "#include <iostream>\r\n\r\nint main()\r\n{\r\n    std::string input;\r\n    std::cin >> input;\r\n    return 0;\r\n}"
         },
         "cs": {
-          "ReadLine.cs": "using System;\r\n\r\nclass Program\r\n{\r\n    static void Main()\r\n    {\r\n        Console.Write(\"Enter your age: \");\r\n        string input = Console.ReadLine();\r\n        int age = int.Parse(input); // This will throw an exception if the input is not a valid integer\r\n\r\n        Console.WriteLine(\"Your age is \" + age);\r\n    }\r\n}"
+          "UserInput.cs": "using System;\r\n\r\nclass Program\r\n{\r\n    static void Main()\r\n    {\r\n        string input = Console.ReadLine();\r\n    }\r\n}"
         },
         "go": {
-          "read_string.go": "package main\r\n\r\nimport (\r\n    \"bufio\"\r\n    \"fmt\"\r\n    \"os\"\r\n    \"strconv\"\r\n    \"strings\"\r\n)\r\n\r\nfunc main() {\r\n    reader := bufio.NewReader(os.Stdin)\r\n\r\n    fmt.Print(\"Enter your age: \")\r\n    input, _ := reader.ReadString('\\n')\r\n    input = strings.TrimSpace(input)\r\n    age, _ := strconv.Atoi(input) // This will panic if the input is not a valid integer\r\n\r\n    fmt.Println(\"Your age is\", age)\r\n}"
+          "user_input.go": "package main\r\n\r\nimport (\r\n    \"bufio\"\r\n    \"fmt\"\r\n    \"os\"\r\n)\r\n\r\nfunc main() {\r\n    reader := bufio.NewReader(os.Stdin)\r\n    input, _ := reader.ReadString('\\n')\r\n}"
+        },
+        "hs": {
+          "user-input.hs": "main :: IO ()\r\nmain = do\r\n    input <- getLine\r\n    return ()"
         },
         "java": {
-          "Main.java": "import java.util.Scanner;\r\n\r\npublic class Main {\r\n    public static void main(String[] args) {\r\n        try (Scanner scanner = new Scanner(System.in)) {\r\n            System.out.print(\"Enter your age: \");\r\n            int age = scanner.nextInt();\r\n\r\n            System.out.println(\"Your age is \" + age);\r\n        }\r\n    }\r\n}"
+          "UserInput.java": "import java.util.Scanner;\r\n\r\npublic class UserInput {\r\n    public static void main(String[] args) {\r\n        Scanner scanner = new Scanner(System.in);\r\n        String input = scanner.nextLine();\r\n        scanner.close();\r\n    }\r\n}"
         },
         "js": {
-          "nodeReadline.js": "const readline = require(\"readline\");\r\n\r\nconst rl = readline.createInterface({\r\n  input: process.stdin,\r\n  output: process.stdout,\r\n});\r\n\r\nrl.question(\"Enter your age: \", (input) => {\r\n  const age = parseInt(input, 10);\r\n\r\n  console.log(`Your age is ${age}`);\r\n  rl.close();\r\n});\r\n"
+          "userInput.js": "const readline = require('readline');\r\n\r\nconst rl = readline.createInterface({\r\n    input: process.stdin,\r\n    output: process.stdout\r\n});\r\n\r\nrl.question('', (input) => {\r\n    rl.close();\r\n});"
         },
         "py": {
-          "input.py": "def main():\r\n    age = input(\"Enter your age: \")\r\n    age = int(age)\r\n\r\n    print(f\"Your age is {age}\")\r\n\r\nif __name__ == \"__main__\":\r\n    main()"
+          "user_input.py": "input = input()"
         },
         "rb": {
-          "chomp.rb": "puts \"Enter your age: \"\r\ninput = gets.chomp\r\nage = input.to_i\r\n\r\nputs \"Your age is #{age}\""
+          "user_input.rb": "input = gets.chomp"
         },
         "rs": {
-          "stdio.rs": "use std::io::{self, Write};\r\n\r\nfn main() {\r\n    print!(\"Enter your age: \");\r\n    io::stdout().flush().unwrap();\r\n\r\n    let mut input = String::new();\r\n    io::stdin().read_line(&mut input).expect(\"Failed to read line\");\r\n\r\n    let age: i32 = input.trim().parse().expect(\"Please enter a valid number\");\r\n\r\n    println!(\"Your age is {}\", age);\r\n}"
+          "user_input.rs": "use std::io;\r\n\r\nfn main() {\r\n    let mut input = String::new();\r\n    io::stdin().read_line(&mut input).expect(\"Failed to read line\");\r\n}"
         },
         "ts": {
-          "nodeReadline.ts": "import * as readline from 'readline';\r\n\r\nconst rl = readline.createInterface({\r\n    input: process.stdin,\r\n    output: process.stdout\r\n});\r\n\r\nrl.question('Enter your age: ', (input: string) => {\r\n    const age = parseInt(input, 10);\r\n\r\n    console.log(`Your age is ${age}`);\r\n    rl.close();\r\n});"
+          "userInput.ts": "import * as readline from 'readline';\r\n\r\nconst rl = readline.createInterface({\r\n    input: process.stdin,\r\n    output: process.stdout\r\n});\r\n\r\nrl.question('', (input: string) => {\r\n    rl.close();\r\n});"
         }
       }
     },
     "2-sorting": {
       "1-bubble-sort": {
+        "c": {
+          "bubble_sort.c": ""
+        },
+        "cpp": {
+          "bubble_sort.cpp": ""
+        },
+        "cs": {
+          "bubble-sort.cs": ""
+        },
+        "go": {
+          "bubble_sort.go": ""
+        },
+        "hs": {
+          "bubble-sort.hs": ""
+        },
+        "java": {
+          "bubble-sort.java": ""
+        },
         "js": {
           "bubbleSort.js": "function bubbleSort(arr) {\r\n  let len = arr.length;\r\n  let swapped;\r\n\r\n  do {\r\n    swapped = false;\r\n    for (let i = 0; i < len; i++) {\r\n      if (arr[i] > arr[i + 1]) {\r\n        let tmp = arr[i];\r\n        arr[i] = arr[i + 1];\r\n        arr[i + 1] = tmp;\r\n        swapped = true;\r\n      }\r\n    }\r\n  } while (swapped);\r\n\r\n  return arr;\r\n}\r\n"
         },
         "py": {
           "BubbleSort.py": "def bubble_sort(arr):\r\n    n = len(arr)\r\n    \r\n    for i in range(n):\r\n        for j in range(0, n-i-1):\r\n            if arr[j] > arr[j+1]:\r\n                arr[j], arr[j+1] = arr[j+1], arr[j]\r\n                \r\n    return arr"
+        },
+        "rb": {
+          "bubble_sort.rb": ""
+        },
+        "rs": {
+          "bubble_sort.rs": ""
+        },
+        "ts": {
+          "bubble-sort.ts": ""
         }
       },
       "2-quick-sort": {
+        "c": {
+          "quick_sort.c": ""
+        },
+        "cpp": {
+          "quick_sort.cpp": ""
+        },
+        "cs": {
+          "quick-sort.cs": ""
+        },
+        "go": {
+          "quick_sort.go": ""
+        },
+        "hs": {
+          "quick-sort.hs": ""
+        },
+        "java": {
+          "quick-sort.java": ""
+        },
         "js": {
           "quickSort.js": "function quickSort(arr) {\r\n  if (arr.length <= 1) {\r\n    return arr;\r\n  }\r\n\r\n  const pivot = arr[Math.floor(arr.length / 2)];\r\n  const left = [];\r\n  const right = [];\r\n\r\n  for (let i = 0; i < arr.length; i++) {\r\n    if (i === Math.floor(arr.length / 2)) continue;\r\n    if (arr[i] < pivot) {\r\n      left.push(arr[i]);\r\n    } else {\r\n      right.push(arr[i]);\r\n    }\r\n  }\r\n\r\n  return quickSort(left).concat(pivot, quickSort(right));\r\n}\r\n"
         },
         "py": {
           "QuickSort.py": "def quick_sort(arr):\r\n    def partition(arr, low, high):\r\n        pivot = arr[high]\r\n        i = low - 1\r\n        for j in range(low, high):\r\n            if arr[j] < pivot:\r\n                i += 1\r\n                arr[i], arr[j] = arr[j], arr[i]\r\n        arr[i+1], arr[high] = arr[high], arr[i+1]\r\n        return i+1\r\n\r\n    def quick_sort_rec(arr, low, high):\r\n        if low < high:\r\n            pi = partition(arr, low, high)\r\n            quick_sort_rec(arr, low, pi-1)\r\n            quick_sort_rec(arr, pi+1, high)\r\n\r\n    quick_sort_rec(arr, 0, len(arr)-1)\r\n    return arr"
+        },
+        "rb": {
+          "quick_sort.rb": ""
+        },
+        "rs": {
+          "quick_sort.rs": ""
+        },
+        "ts": {
+          "quick-sort.ts": ""
+        }
+      }
+    },
+    "3-leetcode": {
+      "1-two-sum": {
+        "c": {
+          "two_sum.c": ""
+        },
+        "cpp": {
+          "two_sum.cpp": ""
+        },
+        "cs": {
+          "TwoSum.cs": ""
+        },
+        "go": {
+          "two_sum.go": ""
+        },
+        "hs": {
+          "two-sum.hs": ""
+        },
+        "java": {
+          "TwoSum.java": ""
+        },
+        "js": {
+          "twoSum.js": ""
+        },
+        "py": {
+          "two_sum.py": ""
+        },
+        "rb": {
+          "two_sum.rb": ""
+        },
+        "rs": {
+          "two_sum.rs": ""
+        },
+        "ts": {
+          "twoSum.ts": ""
         }
       }
     }

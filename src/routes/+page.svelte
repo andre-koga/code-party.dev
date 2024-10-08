@@ -155,12 +155,14 @@
               {titlefy(problem)}
             </h3>
             <div
-              class="grid gap-5 {twoColumns ? 'grid-cols-2' : 'grid-cols-1'}"
+              class="grid items-start gap-5 {twoColumns
+                ? 'grid-cols-2'
+                : 'grid-cols-1'}"
             >
               {#each allLanguages(allData, category, problem) as language, i}
                 {#if selectedLanguages.length === 0 || selectedLanguages.includes(language)}
                   <div
-                    class="grid gap-2 overflow-hidden"
+                    class="grid items-start gap-2 overflow-hidden"
                     style="order: {orderOfLanguage(
                       allData,
                       category,

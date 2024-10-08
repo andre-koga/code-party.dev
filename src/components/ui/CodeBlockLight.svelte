@@ -5,7 +5,6 @@
   import "highlight.js/styles/github.css";
   import CodeFooter from "./CodeFooter.svelte";
 
-  export let file: string = "";
   export let code: string = "";
   export let language: string = "";
 
@@ -25,6 +24,4 @@
 <pre
   class="block overflow-auto rounded-lg bg-stone-100 text-xs font-light sm:text-sm dark:hidden dark:bg-slate-950"><CodeFooter
     {code}
-    {file}
-    {language}
   /><code class="language-{language}" use:highlightCode>{code}</code></pre>

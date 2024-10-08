@@ -2,8 +2,6 @@
   import { Clipboard } from "lucide-svelte";
 
   export let code: string;
-  export let file: string;
-  export let language: string;
 
   const charCount = (): number => {
     return code.length;
@@ -23,7 +21,7 @@
 <div
   class="flex items-center gap-1.5 px-1.5 py-1 text-xs text-stone-600 sm:gap-3 dark:text-slate-400"
 >
-  <p class="hidden md:inline">{file}</p>
+  <!-- <p class="hidden md:inline">{file}</p> -->
   <p><span class="hidden md:inline">chars=</span>{charCount()}</p>
   <p><span class="hidden md:inline">lines=</span>{lineCount()}</p>
   <p class="flex-grow"></p>
