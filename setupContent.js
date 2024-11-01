@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { allowedLanguages } from "./src/lib/constants/languages.js";
 
 const args = process.argv.slice(2);
 
@@ -12,7 +13,7 @@ if (args.length <= 1) {
 // first argument is the new folder name for the category
 // second argument is the name of the problem folder inside the category folder
 
-// assume the file name is in the underscore format:
+// assume the file name is in the snake format:
 // e.g. two_sum
 
 const category = args[0];
@@ -20,7 +21,18 @@ const problem = args[1];
 
 // the file name is simply the problem name without the first two letters
 // and then converted from kebab to snake case
-const fileName = problem.slice(2).replace(/-/g, "_");
+const snakeFileName = problem.slice(2);
+
+const kebabFileName = snakeFileName.replace(/_/g, "-");
+
+const pascalFileName = snakeFileName
+  .split("_")
+  .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+  .join("");
+
+const camelFileName = snakeFileName.replace(/_./, (match) =>
+  match.charAt(1).toUpperCase(),
+);
 
 // inside content folder:
 // create category folder
@@ -38,32 +50,8 @@ if (!fs.existsSync(problemPath)) {
   fs.mkdirSync(problemPath);
 }
 
-// conversion from underscore to pascal case
-const pascalCase = fileName
-  .split("_")
-  .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-  .join("");
-
-// conversion from underscore to camel case
-const camelCase = fileName.replace(/_./, (match) =>
-  match.charAt(1).toUpperCase(),
-);
-
-const languages = [
-  ["c", null],
-  ["cpp", null],
-  ["cs", pascalCase],
-  ["go", null],
-  ["java", pascalCase],
-  ["js", camelCase],
-  ["py", null],
-  ["rb", null],
-  ["rs", null],
-  ["ts", camelCase],
-];
-
 // create folder for each language and a file
-languages.forEach((language) => {
+allowedLanguages.forEach((language) => {
   const languagePath = path.join(problemPath, language[0]);
 
   if (!fs.existsSync(languagePath)) {
@@ -72,9 +60,14 @@ languages.forEach((language) => {
 
   // if there is already a file inside the language folder, we skip
   if (fs.readdirSync(languagePath).length == 0) {
-    // if language[1] is null, use the default fileName
-    // else, we call the function inside language[1] with the fileName as a paramete
-    const customName = language[1] ? language[1] : fileName;
+    const customName = snakeFileName;
+    if (language.naming == "camelCase") {
+      customName = camelFileName;
+    } else if (language.naming == "PascalCase") {
+      customName = pascalFileName;
+    } else if (language.naming == "kebab-case") {
+      customName = kebabFileName;
+    }
 
     const filePath = path.join(languagePath, `${customName}.${language[0]}`);
     if (!fs.existsSync(filePath)) {

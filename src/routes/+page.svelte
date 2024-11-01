@@ -118,7 +118,6 @@
     <Sidebar {allData} />
 
     <content class="grid flex-grow gap-6 px-2 py-6 sm:p-6" id="top">
-
       <!-- table comparing all of the allowed languages? -->
       <!-- <h2
             id="languages"
@@ -151,12 +150,14 @@
 
       <hr class="border-stone-300 dark:border-slate-800" />
 
-      <div class="mx-auto container p-4 dark:text-slate-500 text-stone-500 bg-stone-300 italic dark:bg-slate-800 rounded-lg">
-        <p class="text-xs text-center">
-          disclaimer! this project does not try to argue which language is the best
-          or which implementation is the most efficient. the goal is to show
-          different ways to solve the same problem in different languages. bear in mind
-          a single problem can be solved in many ways.
+      <div
+        class="container mx-auto rounded-lg bg-stone-300 p-4 italic text-stone-500 dark:bg-slate-800 dark:text-slate-500"
+      >
+        <p class="text-center text-xs">
+          disclaimer! this project does not try to argue which language is the
+          best or which implementation is the most efficient. the goal is to
+          show different ways to solve the same problem in different languages.
+          bear in mind a single problem can be solved in many ways.
         </p>
       </div>
 
