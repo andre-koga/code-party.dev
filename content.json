@@ -105,6 +105,76 @@
         "ts": {
           "conditionals.ts": "import * as readline from 'readline';\r\n\r\nconst rl = readline.createInterface({\r\n    input: process.stdin,\r\n    output: process.stdout\r\n});\r\n\r\nrl.question('Enter a number: ', (input) => {\r\n    const number = parseInt(input, 10);\r\n\r\n    if (number > 0) {\r\n        console.log('The number is positive.');\r\n    } else if (number < 0) {\r\n        console.log('The number is negative.');\r\n    } else {\r\n        console.log('The number is zero.');\r\n    }\r\n\r\n    rl.close();\r\n});"
         }
+      },
+      "4-for-loop": {
+        "c": {
+          "for_loop.c": "#include <stdio.h>\r\n\r\nint main()\r\n{\r\n    for (int i = 0; i < 10; i++)\r\n    {\r\n        printf(\"%d\\n\", i);\r\n    }\r\n    return 0;\r\n}"
+        },
+        "cpp": {
+          "for_loop.cpp": "#include <iostream>\r\n\r\nint main()\r\n{\r\n    for (int i = 0; i < 10; i++)\r\n    {\r\n        std::cout << i << std::endl;\r\n    }\r\n    return 0;\r\n}"
+        },
+        "cs": {
+          "ForLoop.cs": "using System;\r\n\r\nclass Program\r\n{\r\n    static void Main()\r\n    {\r\n        for (int i = 0; i < 10; i++)\r\n        {\r\n            Console.WriteLine(i);\r\n        }\r\n    }\r\n}"
+        },
+        "go": {
+          "for_loop.go": "package main\r\n\r\nimport (\r\n    \"fmt\"\r\n)\r\n\r\nfunc main() {\r\n    for i := 0; i < 10; i++ {\r\n        fmt.Println(i)\r\n    }\r\n}"
+        },
+        "hs": {
+          "for-loop.hs": "main :: IO ()\r\nmain = mapM_ print [0..9]"
+        },
+        "java": {
+          "ForLoop.java": "public class ForLoop {\r\n    public static void main(String[] args) {\r\n        for (int i = 0; i < 10; i++) {\r\n            System.out.println(i);\r\n        }\r\n    }\r\n}"
+        },
+        "js": {
+          "forLoop.js": "for (let i = 0; i < 10; i++) {\r\n  console.log(i);\r\n}\r\n"
+        },
+        "py": {
+          "for_loop.py": "for i in range(10):\r\n    print(i)"
+        },
+        "rb": {
+          "for_loop.rb": "for i in 0...10\r\n  puts i\r\nend"
+        },
+        "rs": {
+          "for_loop.rs": "fn main() {\r\n    for i in 0..10 {\r\n        println!(\"{}\", i);\r\n    }\r\n}"
+        },
+        "ts": {
+          "forLoop.ts": "for (let i = 0; i < 10; i++) {\r\n    console.log(i);\r\n}"
+        }
+      },
+      "5-while-loop": {
+        "c": {
+          "while_loop.c": "#include <stdio.h>\r\n\r\nint main()\r\n{\r\n    int number;\r\n\r\n    printf(\"Enter numbers (enter 0 to stop):\\n\");\r\n\r\n    while (1)\r\n    {\r\n        printf(\"Enter a number: \");\r\n        scanf(\"%d\", &number);\r\n\r\n        if (number == 0)\r\n        {\r\n            break;\r\n        }\r\n\r\n        printf(\"You entered: %d\\n\", number);\r\n    }\r\n\r\n    printf(\"Loop terminated because you entered 0.\\n\");\r\n\r\n    return 0;\r\n}"
+        },
+        "cpp": {
+          "while_loop.cpp": "#include <iostream>\r\n\r\nint main()\r\n{\r\n    int number;\r\n\r\n    std::cout << \"Enter numbers (enter 0 to stop):\" << std::endl;\r\n\r\n    while (true)\r\n    {\r\n        std::cout << \"Enter a number: \";\r\n        std::cin >> number;\r\n\r\n        if (number == 0)\r\n        {\r\n            break;\r\n        }\r\n\r\n        std::cout << \"You entered: \" << number << std::endl;\r\n    }\r\n\r\n    std::cout << \"Loop terminated because you entered 0.\" << std::endl;\r\n\r\n    return 0;\r\n}"
+        },
+        "cs": {
+          "WhileLoop.cs": "using System;\r\n\r\nclass Program\r\n{\r\n    static void Main()\r\n    {\r\n        int number;\r\n\r\n        Console.WriteLine(\"Enter numbers (enter 0 to stop):\");\r\n\r\n        while (true)\r\n        {\r\n            Console.Write(\"Enter a number: \");\r\n            number = int.Parse(Console.ReadLine());\r\n\r\n            if (number == 0)\r\n            {\r\n                break;\r\n            }\r\n\r\n            Console.WriteLine(\"You entered: \" + number);\r\n        }\r\n\r\n        Console.WriteLine(\"Loop terminated because you entered 0.\");\r\n    }\r\n}"
+        },
+        "go": {
+          "while_loop.go": "package main\r\n\r\nimport (\r\n    \"fmt\"\r\n)\r\n\r\nfunc main() {\r\n    var number int\r\n\r\n    fmt.Println(\"Enter numbers (enter 0 to stop):\")\r\n\r\n    for {\r\n        fmt.Print(\"Enter a number: \")\r\n        fmt.Scan(&number)\r\n\r\n        if number == 0 {\r\n            break\r\n        }\r\n\r\n        fmt.Println(\"You entered:\", number)\r\n    }\r\n\r\n    fmt.Println(\"Loop terminated because you entered 0.\")\r\n}"
+        },
+        "hs": {
+          "while-loop.hs": "main :: IO ()\r\nmain = do\r\n    putStrLn \"Enter numbers (enter 0 to stop):\"\r\n    loop\r\n\r\nloop :: IO ()\r\nloop = do\r\n    putStr \"Enter a number: \"\r\n    input <- getLine\r\n    let number = read input :: Int\r\n    if number == 0\r\n        then putStrLn \"Loop terminated because you entered 0.\"\r\n        else do\r\n            putStrLn $ \"You entered: \" ++ show number\r\n            loop"
+        },
+        "java": {
+          "WhileLoop.java": "import java.util.Scanner;\r\n\r\npublic class WhileLoop {\r\n    public static void main(String[] args) {\r\n        Scanner scanner = new Scanner(System.in);\r\n        int number;\r\n\r\n        System.out.println(\"Enter numbers (enter 0 to stop):\");\r\n\r\n        while (true) {\r\n            System.out.print(\"Enter a number: \");\r\n            number = scanner.nextInt();\r\n\r\n            if (number == 0) {\r\n                break;\r\n            }\r\n\r\n            System.out.println(\"You entered: \" + number);\r\n        }\r\n\r\n        System.out.println(\"Loop terminated because you entered 0.\");\r\n        scanner.close();\r\n    }\r\n}"
+        },
+        "js": {
+          "whileLoop.js": "const readline = require(\"readline\");\r\n\r\nconst rl = readline.createInterface({\r\n  input: process.stdin,\r\n  output: process.stdout,\r\n});\r\n\r\nconsole.log(\"Enter numbers (enter 0 to stop):\");\r\n\r\nfunction askForNumber() {\r\n  rl.question(\"Enter a number: \", (input) => {\r\n    const number = parseInt(input, 10);\r\n\r\n    if (number === 0) {\r\n      console.log(\"Loop terminated because you entered 0.\");\r\n      rl.close();\r\n    } else {\r\n      console.log(\"You entered: \" + number);\r\n      askForNumber();\r\n    }\r\n  });\r\n}\r\n\r\naskForNumber();\r\n"
+        },
+        "py": {
+          "while_loop.py": "def main():\r\n    print(\"Enter numbers (enter 0 to stop):\")\r\n\r\n    while True:\r\n        number = int(input(\"Enter a number: \"))\r\n\r\n        if number == 0:\r\n            break\r\n\r\n        print(\"You entered:\", number)\r\n\r\n    print(\"Loop terminated because you entered 0.\")\r\n\r\nif __name__ == \"__main__\":\r\n    main()"
+        },
+        "rb": {
+          "while_loop.rb": "def main():\r\n    print(\"Enter numbers (enter 0 to stop):\")\r\n\r\n    while True:\r\n        number = int(input(\"Enter a number: \"))\r\n\r\n        if number == 0:\r\n            break\r\n\r\n        print(\"You entered:\", number)\r\n\r\n    print(\"Loop terminated because you entered 0.\")\r\n\r\nif __name__ == \"__main__\":\r\n    main()"
+        },
+        "rs": {
+          "while_loop.rs": "use std::io;\r\n\r\nfn main() {\r\n    println!(\"Enter numbers (enter 0 to stop):\");\r\n\r\n    loop {\r\n        let mut input = String::new();\r\n        println!(\"Enter a number: \");\r\n        io::stdin().read_line(&mut input).expect(\"Failed to read line\");\r\n\r\n        let number: i32 = input.trim().parse().expect(\"Please enter a valid number\");\r\n\r\n        if number == 0 {\r\n            break;\r\n        }\r\n\r\n        println!(\"You entered: {}\", number);\r\n    }\r\n\r\n    println!(\"Loop terminated because you entered 0.\");\r\n}"
+        },
+        "ts": {
+          "whileLoop.ts": "import * as readline from 'readline';\r\n\r\nconst rl = readline.createInterface({\r\n    input: process.stdin,\r\n    output: process.stdout\r\n});\r\n\r\nconsole.log(\"Enter numbers (enter 0 to stop):\");\r\n\r\nfunction askForNumber() {\r\n    rl.question('Enter a number: ', (input) => {\r\n        const number = parseInt(input, 10);\r\n\r\n        if (number === 0) {\r\n            console.log(\"Loop terminated because you entered 0.\");\r\n            rl.close();\r\n        } else {\r\n            console.log(\"You entered: \" + number);\r\n            askForNumber();\r\n        }\r\n    });\r\n}\r\n\r\naskForNumber();"
+        }
       }
     },
     "2-sorting": {

@@ -13,17 +13,17 @@ if (args.length <= 1) {
 // first argument is the new folder name for the category
 // second argument is the name of the problem folder inside the category folder
 
-// assume the file name is in the snake format:
-// e.g. two_sum
+// assume the file name is in the kebab format:
+// e.g. two-sum
 
 const category = args[0];
 const problem = args[1];
 
 // the file name is simply the problem name without the first two letters
 // and then converted from kebab to snake case
-const snakeFileName = problem.slice(2);
+const kebabFileName = problem.slice(2);
 
-const kebabFileName = snakeFileName.replace(/_/g, "-");
+const snakeFileName = kebabFileName.replace(/-/g, "_");
 
 const pascalFileName = snakeFileName
   .split("_")
@@ -51,8 +51,8 @@ if (!fs.existsSync(problemPath)) {
 }
 
 // create folder for each language and a file
-allowedLanguages.forEach((language) => {
-  const languagePath = path.join(problemPath, language[0]);
+Object.values(allowedLanguages).forEach((language) => {
+  const languagePath = path.join(problemPath, language.extension);
 
   if (!fs.existsSync(languagePath)) {
     fs.mkdirSync(languagePath);
@@ -60,16 +60,21 @@ allowedLanguages.forEach((language) => {
 
   // if there is already a file inside the language folder, we skip
   if (fs.readdirSync(languagePath).length == 0) {
-    const customName = snakeFileName;
-    if (language.naming == "camelCase") {
-      customName = camelFileName;
+    let fileName = kebabFileName; // already kebab-case
+    console.log(language.naming);
+
+    if (language.naming == "snake_case") {
+      fileName = snakeFileName;
     } else if (language.naming == "PascalCase") {
-      customName = pascalFileName;
-    } else if (language.naming == "kebab-case") {
-      customName = kebabFileName;
+      fileName = pascalFileName;
+    } else if (language.naming == "camelCase") {
+      fileName = camelFileName;
     }
 
-    const filePath = path.join(languagePath, `${customName}.${language[0]}`);
+    const filePath = path.join(
+      languagePath,
+      `${fileName}.${language.extension}`,
+    );
     if (!fs.existsSync(filePath)) {
       fs.writeFileSync(filePath, "");
     }
